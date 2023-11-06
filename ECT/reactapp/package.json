@@ -1,0 +1,41 @@
+{
+  "name": "reactapp",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "predev": "node aspnetcore-https.js"
+  },
+  "dependencies": {
+    "and": "^0.0.3",
+    "bootstrap": "^5.3.2",
+    "install": "^0.13.0",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
+    "node-sass": "^9.0.0",
+    "npm": "^10.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.4.5",
+    "react-router-dom": "^6.18.0",
+    "reactstrap": "^9.2.0",
+    "sort-by": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "file-loader": "^6.2.0",
+    "sass": "^1.69.5",
+    "vite": "^4.4.5",
+    "vite-plugin-svgr": "^4.1.0"
+  }
+}
