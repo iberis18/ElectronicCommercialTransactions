@@ -1,0 +1,33 @@
+@import '../../colors.sass'
+
+.search-field
+  display: flex
+  flex-direction: row
+  margin: 50px 20px 50px 20px
+  padding: 15px 20px 15px 20px
+  background: $white
+
+  &__label
+    flex-grow: 5
+    border: none
+    outline: none
+    color: $gray
+
+    &::placeholder
+      color: $light-gray
+      font-size: 14px
+
+  &__btn
+    border: none
+    background: transparent
+
+    &__icon
+      width: 20px
+      height: 20px
+      fill: $gray
+
+.visible
+  visibility: visible
+
+.hidden  
+  visibility: hidden

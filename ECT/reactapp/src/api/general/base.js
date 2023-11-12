@@ -11,6 +11,7 @@ export const get = (url) => {
     },
   })
   .then(response => response.json())
+  .catch(error => console.log(error.message));
 };
 
 export const post = (url, body) => {
@@ -23,7 +24,8 @@ export const post = (url, body) => {
     body: JSON.stringify(body),
   })
   .then(response => response.json())
-  .then(response => response.data);
+  .then(response => response.data)
+  .catch(error => console.log(error.message));
 };
 
 export const postFile = (url, body) => {
@@ -35,7 +37,8 @@ export const postFile = (url, body) => {
       body: body,
   })
   .then(response => response.json())
-  .then(response => response.data);
+  .then(response => response.data)
+  .catch(error => console.log(error.message));
 };
 
 export const put = (url, body) => {
@@ -48,7 +51,8 @@ export const put = (url, body) => {
       body: body ? JSON.stringify(body) : undefined,
   })
   .then(response => response.json())
-  .then(response => response.data);
+  .then(response => response.data)
+  .catch(error => console.log(error.message));
 };
 
 export const del = (url, body) => {
@@ -61,5 +65,6 @@ export const del = (url, body) => {
     body: body ? JSON.stringify(body) : undefined,
   })
   .then(response => response.json())
-  .then(response => response.data);
+  .then(response => response.data)
+  .catch(error => console.log(error.message));
 };
