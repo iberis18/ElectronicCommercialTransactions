@@ -1,8 +1,5 @@
 import { baseUrl } from "../../const";
 
-// const data = fetchNewWord(); 
-// console.log(data);
-
 export const get = (url) => {
    return fetch(`${baseUrl}${url}`, {
     method: "GET",
