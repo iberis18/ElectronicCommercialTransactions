@@ -13,11 +13,11 @@ export default class Search extends Component {
             value: '',
             page: props.page || '',
         };
+        this.setSearchResult = this.props.setSearchResult;
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClean = this.handleClean.bind(this);
-        // this.setResults
     }
     
     handleChange(event) {
@@ -26,8 +26,7 @@ export default class Search extends Component {
     
     async handleSubmit() {
         const data = await getAllPurchases(this.state.page, this.state.value);
-        this.props.setSearchResult(data.response);
-        // this.props.setResults(data.response);
+        this.setSearchResult(data.response);
     }
 
     handleClean() {
@@ -39,7 +38,7 @@ export default class Search extends Component {
         return (
             <>
             <div className='search-field' onSubmit={this.handleSubmit}>
-                <input 
+                <input  
                     className='search-field__label'
                     type='text'
                     value={this.state.value}

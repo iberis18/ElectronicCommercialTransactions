@@ -1,0 +1,85 @@
+@import '../../colors.sass'
+@import '../../const.sass'
+
+.frame-element
+  display: table
+  width: 100%
+  box-shadow: 1px 5px 7px -1px $shadow-color
+  border: $border-width solid $border-color
+
+  &__row
+    display: table-row
+
+  &__col-left
+    display: table-cell
+    vertical-align: top
+    padding: $small-element-padding
+    background: $white
+    width: $big-col
+    border-right: $border-width solid $border-color
+  
+  &__col-right
+    display: table-cell
+    vertical-align: top
+    padding: $small-element-padding
+    background: $white
+    width: $small-col
+  
+  &__small-label-name
+    font-size: $small-font-size
+    color: $light-gray
+    margin: 0
+    line-height: $line-height
+
+  &__title-link
+    text-decoration: none
+    color: $blue
+    font:
+      weight: $font-weight-semibold
+      size: $title-font-size
+    margin: 0
+    display: inline-block
+    line-height: $line-height
+    vertical-align: middle
+
+  &__status
+    display: inline-block
+    font:
+      weight: $font-weight-bold
+      size: $small-font-size
+    color: $gray
+    padding-left: $element-padding
+    margin: 0
+    line-height: $line-height
+    vertical-align: middle
+
+  &__label-text
+    color: $gray
+    margin: 0
+    font-size: $normal-font-size
+    line-height: $small-line-height
+    padding-bottom: $smallest-element-padding
+
+  &__small-link
+    text-decoration: none
+    color: $blue
+    font:
+      weight: $font-weight-semibold
+      size: $normal-font-size
+    margin: 0
+
+  &__cost
+    color: $coral
+    font:
+      weight: $font-weight-semibold
+      size: $title-font-size
+    margin: 0
+    line-height: $line-height
+    padding-bottom: $big-element-padding
+  
+  &__date
+    font-size: $small-font-size
+    color: $gray
+    margin-top: -5px
+    margin-bottom: 0
+

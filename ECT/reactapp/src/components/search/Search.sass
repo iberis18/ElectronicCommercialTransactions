@@ -1,10 +1,11 @@
 @import '../../colors.sass'
+@import '../../const.sass'
 
 .search-field
   display: flex
   flex-direction: row
-  margin: 50px 20px 50px 20px
-  padding: 15px 20px 15px 20px
+  margin: $big-after-element-margin $big-page-indent $big-after-element-margin $big-page-indent
+  padding: $small-element-padding $element-padding $small-element-padding $element-padding
   background: $white
 
   &__label
@@ -15,15 +16,15 @@
 
     &::placeholder
       color: $light-gray
-      font-size: 14px
+      font-size: $placeholder-font-size
 
   &__btn
     border: none
     background: transparent
 
     &__icon
-      width: 20px
-      height: 20px
+      width: $icon-size
+      height: $icon-size
       fill: $gray
 
 .visible

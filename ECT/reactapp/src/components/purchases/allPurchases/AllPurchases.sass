@@ -1,2 +1,27 @@
 @import '../../../colors.sass'
+@import '../../../const.sass'
 
+.purchases-page
+  display: table
+  position: relative
+  width: 100%
+  height: $full-screen
+  background: $white    
+  padding: $element-padding $big-page-indent $element-padding $big-page-indent 
+
+  &__row
+    display: table-row
+
+  &__list-col-left
+    display: table-cell
+    vertical-align: top
+    padding:
+        right: $big-element-padding
+    width: $big-col
+  
+  &__filter-col-right
+    display: table-cell
+    vertical-align: top
+    padding:
+        left: $big-element-padding
+    width: $small-col

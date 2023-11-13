@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getAllPurchases } from '../../../api/domains/purchasesApi';
 import './AllPurchases.sass'
 import Search from '../../search/Search';
+import CardPurchaseElement from '../../cardPurchaseElement/CardPurchaseElement';
 
 export default class AllPurchases extends Component {
     static displayName = AllPurchases.name;
@@ -12,7 +13,7 @@ export default class AllPurchases extends Component {
         page: 1,
         purchases: [], 
       };
-      this.setPurchases = this.setPurchases.bind(this)
+      this.setPurchases = this.setPurchases.bind(this);
     }
 
     async componentDidMount() {
@@ -21,7 +22,6 @@ export default class AllPurchases extends Component {
     }
 
     setPurchases(value) {
-      // console.log(purchases);
       this.setState({ purchases: value });
     }
 
@@ -29,8 +29,18 @@ export default class AllPurchases extends Component {
       return (
         <>
           <Search page={this.state.page} setSearchResult={this.setPurchases} />
-          <h1>AllPurchases</h1>
-          <p>Welcome to AllPurchases!</p>
+          <div className='purchases-page'>
+              <div className='purchases-page__row'>
+                <div className='purchases-page__list-col-left'>
+                  <CardPurchaseElement />
+                </div>
+
+                <div className='purchases-page__filter-col-right'>
+                  <h1>AllPurchases</h1>
+                  <p>Welcome to AllPurchases!</p>
+                </div>
+              </div>
+            </div>          
         </>
       );
     }
