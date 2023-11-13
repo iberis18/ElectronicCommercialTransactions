@@ -17,6 +17,7 @@ export default class Search extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleClean = this.handleClean.bind(this);
+        // this.setResults
     }
     
     handleChange(event) {
@@ -25,7 +26,8 @@ export default class Search extends Component {
     
     async handleSubmit() {
         const data = await getAllPurchases(this.state.page, this.state.value);
-        this.setState({ purchases: data.response });
+        this.props.setSearchResult(data.response);
+        // this.props.setResults(data.response);
     }
 
     handleClean() {

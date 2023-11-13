@@ -12,6 +12,7 @@ export default class AllPurchases extends Component {
         page: 1,
         purchases: [], 
       };
+      this.setPurchases = this.setPurchases.bind(this)
     }
 
     async componentDidMount() {
@@ -19,13 +20,18 @@ export default class AllPurchases extends Component {
       this.setState({ purchases: data.response });
     }
 
+    setPurchases(value) {
+      // console.log(purchases);
+      this.setState({ purchases: value });
+    }
+
     render() {
-        return (
-          <>
-            <Search page={this.state.page} />
-            <h1>AllPurchases</h1>
-            <p>Welcome to AllPurchases!</p>
-          </>
-        );
+      return (
+        <>
+          <Search page={this.state.page} setSearchResult={this.setPurchases} />
+          <h1>AllPurchases</h1>
+          <p>Welcome to AllPurchases!</p>
+        </>
+      );
     }
 }
