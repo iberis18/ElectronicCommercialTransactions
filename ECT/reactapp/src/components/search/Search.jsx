@@ -1,60 +1,39 @@
-import React, { Component } from 'react';
+import React, { useState } from "react";
 import './Search.sass'
 import CrossIcon from './../../assets/cross.svg?react';
 import SearchIcon from './../../assets/search.svg?react';
 import { getAllPurchases } from '../../api/domains/purchasesApi';
 
-export default class Search extends Component {
-    static displayName = Search.name;
+export default function Search (props) {
+  const page = props.page || '';
+  const setSearchResult = props.setSearchResult; 
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '',
-            page: props.page || '',
-        };
-        this.setSearchResult = this.props.setSearchResult;
-        
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleClean = this.handleClean.bind(this);
-    }
-    
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-    
-    async handleSubmit() {
-        const data = await getAllPurchases(this.state.page, this.state.value);
-        this.setSearchResult(data.response);
-    }
+  const [value, valueChange] = useState('');
+  
+  const submit = async () => {
+    const data = await getAllPurchases(page, value);
+    setSearchResult(data.response);
+  }
 
-    handleClean() {
-        this.setState({value: ''});
-    }
-
-    //todo make tooltip
-    render() {
-        return (
-            <>
-            <div className='search-field' onSubmit={this.handleSubmit}>
-                <input  
-                    className='search-field__label'
-                    type='text'
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                    placeholder='Введите полностью или часть номера, наименования закупки, идентификационного кода закупки (ИКЗ), наименования или ИНН Заказчика'
-                />
-                <div className={this.state.value? 'visible' : 'hidden'}>
-                    <button onClick={this.handleClean} className='search-field__btn'>
-                        <CrossIcon className='search-field__btn__icon' />
-                    </button>
-                </div>
-                <button onClick={this.handleSubmit} className='search-field__btn'>
-                    <SearchIcon className='search-field__btn__icon' />
-                </button>
-            </div>
-            </>
-        );
-    }
-}
+    return (
+      <>
+        <div className='search-field'>
+          <input  
+            className='search-field__label'
+            type='text'
+            value={value}
+            onChange={e => valueChange(e.target.value)}
+            placeholder='Введите полностью или часть номера, наименования закупки, идентификационного кода закупки (ИКЗ), наименования или ИНН Заказчика'
+          />
+          <div className={value? 'visible' : 'hidden'}>
+            <button onClick={() => valueChange('')} className='search-field__btn'>
+              <CrossIcon className='search-field__btn__icon' />
+            </button>
+          </div>
+          <button onClick={submit} className='search-field__btn'>
+            <SearchIcon className='search-field__btn__icon' />
+          </button>
+        </div>
+        </>
+    );
+  };
