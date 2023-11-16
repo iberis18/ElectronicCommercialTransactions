@@ -12,7 +12,9 @@ export default function Filter (props) {
   
   return (
     <>
-    <div>
+    <div className='filters'>
+      <p className='filters__title'>Параметры поиска</p>
+      <hr />
       {listFiltersIds.map((element) => filtersElements[element])}
     </div>
     </>
