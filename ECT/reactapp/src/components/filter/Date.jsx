@@ -1,9 +1,10 @@
 import { FILTERS_ID } from '../../const';
 
-export const Region = () => {
+export const Date = () => {
+
   return (
     <>
-     <p>Region</p>
+     <p>Date</p>
     </>
   );
 };

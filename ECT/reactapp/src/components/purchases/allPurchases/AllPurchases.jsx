@@ -3,10 +3,13 @@ import { getAllPurchases } from '../../../api/domains/purchasesApi';
 import './AllPurchases.sass'
 import Search from '../../search/Search';
 import CardPurchaseElement from '../../cardPurchaseElement/CardPurchaseElement';
+import Filter from '../../filter/Filter';
+import { FILTERS_ID } from '../../../const';
 
 export default function AllPurchases () {
   const [page, pageChange] = useState('1');
   const [purchases, purchasesChange] = useState([]);
+  const listFiltersIds = [FILTERS_ID.CUSTOMER_NAME, FILTERS_ID.DATE, FILTERS_ID.OKVED,];
 
   useEffect(() => {
     async () => {
@@ -31,8 +34,7 @@ export default function AllPurchases () {
             </div>
 
             <div className='purchases-page__filter-col-right'>
-              <h1>AllPurchases</h1>
-              <p>Welcome to AllPurchases!</p>
+              <Filter listFiltersIds={listFiltersIds}/>
             </div>
           </div>
         </div>          
