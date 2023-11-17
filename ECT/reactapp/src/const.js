@@ -8,3 +8,17 @@ export const FILTERS_ID = {
   REGION: 'REGION',
   STAGE: 'STAGE',
 };
+
+export const STAGES_ID = {
+  WAITS: 'WAITS',
+  COMPLETED: 'COMPLETED',
+  CANCELED: 'CANCELED',
+  ONGOING: 'ONGOING',
+};
+
+export const  TRANSLATED_STAGES = {
+  [STAGES_ID.WAITS]: 'Ожидает проведения',
+  [STAGES_ID.COMPLETED]: 'Закупка завершена',
+  [STAGES_ID.CANCELED]: 'Закупка отменена',
+  [STAGES_ID.ONGOING]: 'Идут торги',
+};

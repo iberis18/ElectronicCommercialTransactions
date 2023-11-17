@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Filter.sass'
 import { FILTERS_ID } from '../../const';
-import { CustomerName } from './CustomerName';
-import { Date } from './Date';
-import { Okved } from './Okved';
-import { Region } from './Region';
-import { Stage } from './Stage';
+import { CustomerName } from './filterElements/CustomerName';
+import { Date } from './filterElements/Date';
+import { Okved } from './filterElements/Okved';
+import { Region } from './filterElements/Region';
+import { Stage } from './filterElements/Stage';
 
 export default function Filter (props) {
   const listFiltersIds = props.listFiltersIds || [];
@@ -14,8 +14,11 @@ export default function Filter (props) {
     <>
     <div className='filters'>
       <p className='filters__title'>Параметры поиска</p>
-      <hr />
-      {listFiltersIds.map((element) => filtersElements[element])}
+      <div className='filters__line'/>
+      {listFiltersIds.map((element) => 
+        <div key={element}>
+          {filtersElements[element]}
+        </div>)}
     </div>
     </>
   );

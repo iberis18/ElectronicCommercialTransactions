@@ -9,7 +9,11 @@ import { FILTERS_ID } from '../../../const';
 export default function AllPurchases () {
   const [page, pageChange] = useState('1');
   const [purchases, purchasesChange] = useState([]);
-  const listFiltersIds = [FILTERS_ID.CUSTOMER_NAME, FILTERS_ID.DATE, FILTERS_ID.OKVED,];
+  const listFiltersIds = [
+    FILTERS_ID.STAGE, 
+    FILTERS_ID.DATE, 
+    FILTERS_ID.CUSTOMER_NAME,
+  ];
 
   useEffect(() => {
     async () => {
@@ -34,7 +38,7 @@ export default function AllPurchases () {
             </div>
 
             <div className='purchases-page__filter-col-right'>
-              <Filter listFiltersIds={listFiltersIds}/>
+              <Filter listFiltersIds={listFiltersIds} />
             </div>
           </div>
         </div>          
