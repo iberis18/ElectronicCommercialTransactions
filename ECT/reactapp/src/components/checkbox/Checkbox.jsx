@@ -14,12 +14,15 @@ export const Checkbox = (props) => {
 
   return (
     <>
-      <input 
-        type="checkbox" 
-        checked={checked} 
-        onChange={() => checkboxHandler(!checked)} 
-      />
-      <span className='checkbox__label'>{label}</span>
+      <div className='checkbox'>
+        <input 
+          className='checkbox__input'
+          type="checkbox" 
+          checked={checked} 
+          onChange={() => checkboxHandler(!checked)} 
+        />
+        <label className='checkbox__label'>{label}</label>
+      </div>
    </>
   );
 };

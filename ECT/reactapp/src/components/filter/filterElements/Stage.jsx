@@ -25,13 +25,12 @@ export const Stage = () => {
     <>
       <div className='filter'>
         <p className='filter__title'>Этап</p>
-        <div className='filter__input'>
+        <div className='filter__checkbox-group'>
           {stageList.map((element) => {
             return(
               <Checkbox key={STAGES_ID[element]} elementKey={STAGES_ID[element]} parentCallback={callback} label={TRANSLATED_STAGES[element]}/>
             )
           })}
-          
         </div>
         <div className='filter__line'/>
       </div>

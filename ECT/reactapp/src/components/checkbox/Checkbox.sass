@@ -3,12 +3,14 @@
 
 .checkbox
   width: 100%
+  margin: 0
+
+  &__input
+    position: relative
+    display: inline-block
+    margin-right: $small-margin
 
   &__label
-  border: $border-width solid $border-color
-  outline: none
-  color: $gray
-  font-size: $normal-font-size
-  line-height: $line-height
-  padding: 0 $smallest-element-padding 0 $smallest-element-padding
-  margin-bottom: $after-element-margin
+    color: $gray
+    font-size: $normal-font-size
+    line-height: $line-height
