@@ -5,11 +5,12 @@ export const Input = (props) => {
   const placeholder = props.placeholder || '';
   const parentCallback = props.parentCallback;
   const type = props.type || 'text';
+  const elementKey = props.elementKey || '';
   const [value, valueChange] = useState('');
   
   const inputHandler = (value) => {
     valueChange(value);
-    parentCallback(value);
+    parentCallback(value, elementKey);
   }
 
   return (

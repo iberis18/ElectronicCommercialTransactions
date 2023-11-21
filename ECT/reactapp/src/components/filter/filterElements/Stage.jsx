@@ -4,15 +4,14 @@ import { Checkbox } from "../../checkbox/Checkbox";
 import { FILTERS_ID, STAGES_ID, TRANSLATED_STAGES } from "../../../const";
 
 export const Stage = (props) => {
-  let isChecked = () => {
-    const dict = {};
-    for (var key in STAGES_ID)
-    dict[key] = false;
-    return dict;
-  };
   const parentCallback = props.parentCallback;
   const id = FILTERS_ID.STAGE;
-  const [value, valueChange] = useState(isChecked());
+  const [value, valueChange] = useState(() => {
+    const dict = {};
+    for (var key in STAGES_ID)
+      dict[key] = false;
+    return dict;
+  });
   const stageList = Object.values(STAGES_ID);
 
   const callback = (val, elementKey) => {

@@ -14,8 +14,7 @@ export const Filter = (props) => {
   const callback = (val, id) => {
     valueChange({
       ...value, 
-      [id] : val, 
-      // [elementKey]: val
+      [id] : val,
     });
   };
 
