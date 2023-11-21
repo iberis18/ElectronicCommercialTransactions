@@ -14,6 +14,10 @@ export default function AllPurchases () {
     FILTERS_ID.DATE, 
     FILTERS_ID.CUSTOMER_NAME,
   ];
+  const [filtersValue, filtersValueChange] = useState({});
+  const filtersCallback = (val) => {
+    filtersValueChange(val);
+  };
 
   useEffect(() => {
     async () => {
@@ -21,6 +25,10 @@ export default function AllPurchases () {
       purchasesChange(data.response);
     }
   }, []);
+
+  useEffect(() => {
+    console.log(filtersValue);
+  }, [filtersValue])
 
   function handlePurchasesChange(value) {
     purchasesChange(value);
@@ -38,7 +46,7 @@ export default function AllPurchases () {
             </div>
 
             <div className='purchases-page__filter-col-right'>
-              <Filter listFiltersIds={listFiltersIds} />
+              <Filter listFiltersIds={listFiltersIds} parentCallback={filtersCallback} />
             </div>
           </div>
         </div>          

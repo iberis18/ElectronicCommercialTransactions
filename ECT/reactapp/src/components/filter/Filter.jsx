@@ -10,6 +10,7 @@ import { Stage } from './filterElements/Stage';
 export const Filter = (props) => {
   const listFiltersIds = props.listFiltersIds || [];
   const [value, valueChange] = useState({});
+  const parentCallback = props.parentCallback;
 
   const callback = (val, id) => {
     valueChange({
@@ -19,7 +20,7 @@ export const Filter = (props) => {
   };
 
   useEffect(() => {
-    console.log(value);
+    parentCallback(value);
   }, [value])
 
   const filtersElements = {
