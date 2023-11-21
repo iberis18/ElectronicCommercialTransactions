@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './FilterElement.sass';
 import { Checkbox } from "../../checkbox/Checkbox";
-import { STAGES_ID, TRANSLATED_STAGES } from "../../../const";
+import { FILTERS_ID, STAGES_ID, TRANSLATED_STAGES } from "../../../const";
 
-export const Stage = () => {
+export const Stage = (props) => {
   let isChecked = () => {
-    const arr = {};
+    const dict = {};
     for (var key in STAGES_ID)
-      arr[key] = false;
-    return arr;
+    dict[key] = false;
+    return dict;
   };
+  const parentCallback = props.parentCallback;
+  const id = FILTERS_ID.STAGE;
   const [value, valueChange] = useState(isChecked());
   const stageList = Object.values(STAGES_ID);
 
@@ -20,6 +22,10 @@ export const Stage = () => {
       [elementKey]: val
     });
   };
+
+  useEffect(() => {
+    parentCallback(value, id)
+  }, [value]);
 
   return (
     <>

@@ -7,8 +7,29 @@ import { Okved } from './filterElements/Okved';
 import { Region } from './filterElements/Region';
 import { Stage } from './filterElements/Stage';
 
-export default function Filter (props) {
+export const Filter = (props) => {
   const listFiltersIds = props.listFiltersIds || [];
+  const [value, valueChange] = useState({});
+
+  const callback = (val, id) => {
+    valueChange({
+      ...value, 
+      [id] : val, 
+      // [elementKey]: val
+    });
+  };
+
+  useEffect(() => {
+    console.log(value);
+  }, [value])
+
+  const filtersElements = {
+    [FILTERS_ID.CUSTOMER_NAME]: <CustomerName parentCallback={callback} />,
+    [FILTERS_ID.DATE]: <Date parentCallback={callback} />,
+    [FILTERS_ID.OKVED]: <Okved parentCallback={callback} />,
+    [FILTERS_ID.REGION]: <Region parentCallback={callback} />,
+    [FILTERS_ID.STAGE]: <Stage parentCallback={callback} />,
+  };
   
   return (
     <>
@@ -22,12 +43,4 @@ export default function Filter (props) {
     </div>
     </>
   );
-};
-
-const filtersElements = {
-  [FILTERS_ID.CUSTOMER_NAME]: <CustomerName />,
-  [FILTERS_ID.DATE]: <Date />,
-  [FILTERS_ID.OKVED]: <Okved />,
-  [FILTERS_ID.REGION]: <Region />,
-  [FILTERS_ID.STAGE]: <Stage />,
 };

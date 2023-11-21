@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Input } from '../../input/Input'
 import './FilterElement.sass';
+import { FILTERS_ID } from "../../../const";
 
-export const Date = () => {
+export const Date = (props) => {
   const [value, valueChange] = useState('');
+  const parentCallback = props.parentCallback;
+  const id = FILTERS_ID.DATE;
 
   const callback = (value) => {
     valueChange(value);
+    parentCallback(value, id);
   }
 
   return (

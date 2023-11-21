@@ -3,7 +3,7 @@ import { getAllPurchases } from '../../../api/domains/purchasesApi';
 import './AllPurchases.sass'
 import Search from '../../search/Search';
 import CardPurchaseElement from '../../cardPurchaseElement/CardPurchaseElement';
-import Filter from '../../filter/Filter';
+import { Filter } from '../../filter/Filter';
 import { FILTERS_ID } from '../../../const';
 
 export default function AllPurchases () {
