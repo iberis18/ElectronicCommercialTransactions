@@ -19,30 +19,26 @@ export default function AllPurchases () {
     filtersValueChange(val);
   };
 
-  useEffect(() => {
-    async () => {
-      const data = await getAllPurchases(page, value);
-      purchasesChange(data.response);
-    }
+  useEffect(() => async() => {
+    const data = await getAllPurchases(page);
+    purchasesChange(data.response);
   }, []);
-
-  useEffect(() => {
-    console.log(filtersValue);
-  }, [filtersValue])
-
-  function handlePurchasesChange(value) {
-    purchasesChange(value);
-  }
 
   return (
     <>
-      <Search page={page} setSearchResult={handlePurchasesChange} />
+      <Search page={page} setSearchResult={purchasesChange} />
       <div className='purchases-page'>
           <div className='purchases-page__row'>
             <div className='purchases-page__list-col-left'>
               <p className='purchases-page__title'>Результаты поиска</p>
               <p className='purchases-page__subtitle'>Более 39 000 000 записей</p>
-              <CardPurchaseElement />
+              <div>
+              {
+                purchases.map((element, index) => (
+                  <CardPurchaseElement key={index} element={element} />
+                ))
+              }
+              </div>
             </div>
 
             <div className='purchases-page__filter-col-right'>
