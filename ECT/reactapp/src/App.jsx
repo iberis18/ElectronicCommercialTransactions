@@ -11,6 +11,7 @@ import Companies from './components/companies/Companies';
 import Win from './components/transactions/win/Win';
 import Participation from './components/transactions/participation/Participation';
 import './App.sass';
+import { Purchase } from './components/purchases/purchase/Purchase';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/companies" element={<Companies />} />
             <Route path="/win" element={<Win />} />
             <Route path="/participation" element={<Participation />} />
+            <Route path="/purchase/:id" element={<Purchase /> } />
           </Routes>
         </div>
       </main>
