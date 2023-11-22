@@ -3,10 +3,7 @@ import './NavMenu.sass'
 import Logo from './../../assets/logo.svg?react';
 import Ava from './../../assets/avatar.svg?react';
 
-export default class NavMenu extends Component {
-  static displayName = NavMenu.name;
-
-  render() {
+export const NavMenu = () => {
     return (
     <>
       <nav>
@@ -57,7 +54,6 @@ export default class NavMenu extends Component {
       </nav>  
     </>
     );
-  }
 }
 
 

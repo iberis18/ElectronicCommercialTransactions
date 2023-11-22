@@ -1,0 +1,51 @@
+@import '../../colors.sass'
+@import '../../const.sass'
+
+.home-page
+  display: table
+  position: relative
+  width: 100%
+  background: $white 
+  // margin-top: $page-indent
+  padding: $big-element-padding $big-page-indent $big-page-indent $big-page-indent 
+  
+  &__row
+    display: table-row
+
+  &__col
+    display: table-cell
+    vertical-align: top
+    padding:
+      right: $big-element-padding
+    width: 50%
+  
+  &__title-gray
+    font:
+      size: $giant-gont-size
+      weight: $font-weight-bold
+    color: $light-gray
+    margin: 0
+
+  &__title-coral
+    font:
+      size: $giant-gont-size
+      weight: $font-weight-bold
+    color: $coral
+    margin: 0
+
+  &__subtitle
+    font:
+      size: $title-font-size
+      weight: $font-weight-semibold
+    color: $light-gray
+    margin: 0
+    padding:
+      top: $big-element-padding
+      bottom: $element-padding
+  
+  &__line
+    border-bottom: $border-width solid $border-color
+    margin: 0
+
+  &__gif
+    width: 100%

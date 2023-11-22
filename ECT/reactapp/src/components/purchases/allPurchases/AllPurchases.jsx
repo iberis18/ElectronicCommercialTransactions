@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getFilterPurchases } from '../../../api/domains/purchasesApi';
 import './AllPurchases.sass'
-import Search from '../../search/Search';
+import { Search } from '../../search/Search';
 import { CardPurchaseElement } from '../../cardPurchaseElement/CardPurchaseElement';
 import { Filter } from '../../filter/Filter';
 import { FILTERS_ID } from '../../../const';
 
-export default function AllPurchases () {
+export const AllPurchases = () => {
   const [page, pageChange] = useState('1');
   const [purchases, purchasesChange] = useState([]);
   const listFiltersIds = [
@@ -23,7 +23,7 @@ export default function AllPurchases () {
     searchValueChange(val);
   };
   useEffect(() => async() => {
-    const data = await getFilterPurchases(page, filtersValue);
+    const data = await getFilterPurchases(page, {...filtersValue, ...searchValue});
     purchasesChange(data.response);
   }, [filtersValue, searchValue]);
 
