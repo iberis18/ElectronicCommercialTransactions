@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getAllPurchases } from '../../../api/domains/purchasesApi';
+import { getFilterPurchases } from '../../../api/domains/purchasesApi';
 import './AllPurchases.sass'
 import Search from '../../search/Search';
-import CardPurchaseElement from '../../cardPurchaseElement/CardPurchaseElement';
+import { CardPurchaseElement } from '../../cardPurchaseElement/CardPurchaseElement';
 import { Filter } from '../../filter/Filter';
 import { FILTERS_ID } from '../../../const';
 
@@ -18,15 +18,23 @@ export default function AllPurchases () {
   const filtersCallback = (val) => {
     filtersValueChange(val);
   };
-
+  const [searchValue, searchValueChange] = useState('');
+  const searchCallback = (val) => {
+    searchValueChange(val);
+  };
   useEffect(() => async() => {
-    const data = await getAllPurchases(page);
+    const data = await getFilterPurchases(page, filtersValue);
     purchasesChange(data.response);
-  }, []);
+  }, [filtersValue, searchValue]);
+
+  // useEffect(() => async() => {
+  //   const data = await getAllPurchases(page);
+  //   purchasesChange(data.response);
+  // }, []);
 
   return (
     <>
-      <Search page={page} setSearchResult={purchasesChange} />
+      <Search page={page} parentCallback={searchCallback} />
       <div className='purchases-page'>
           <div className='purchases-page__row'>
             <div className='purchases-page__list-col-left'>
@@ -35,6 +43,7 @@ export default function AllPurchases () {
               <div>
               {
                 purchases.map((element, index) => (
+                  //todo key={element.id}
                   <CardPurchaseElement key={index} element={element} />
                 ))
               }

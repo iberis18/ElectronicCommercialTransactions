@@ -16,7 +16,7 @@ export const STAGES_ID = {
   ONGOING: 'ONGOING',
 };
 
-export const  TRANSLATED_STAGES = {
+export const TRANSLATED_STAGES = {
   [STAGES_ID.WAITS]: 'Ожидает проведения',
   [STAGES_ID.COMPLETED]: 'Закупка завершена',
   [STAGES_ID.CANCELED]: 'Закупка отменена',
@@ -28,4 +28,14 @@ export const FILTER_DATES_TYPE = {
   POSTING_DATE_FINISH: 'POSTING_DATE_FINISH',
   DATE_OF_AUCTION_START: 'DATE_OF_AUCTION_START',
   DATE_OF_AUCTION_FINISH: 'DATE_OF_AUCTION_START',
+};
+
+export const PURCHASE_TYPE = {
+  AUCTION: 'AUCTION',
+  QUOTATION: 'QUOTATION',
+};
+
+export const TRANSLATED_PURCHASE_TYPE = {
+  [PURCHASE_TYPE.AUCTION]: 'Электронный аукцион',
+  [PURCHASE_TYPE.QUOTATION]: 'Запрос котировок',
 };

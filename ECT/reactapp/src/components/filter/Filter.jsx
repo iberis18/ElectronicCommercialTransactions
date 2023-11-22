@@ -40,6 +40,7 @@ export const Filter = (props) => {
         <div key={element}>
           {filtersElements[element]}
         </div>)}
+      <button className='filters__button' onClick={() => parentCallback(value)}>Применить</button>
     </div>
     </>
   );

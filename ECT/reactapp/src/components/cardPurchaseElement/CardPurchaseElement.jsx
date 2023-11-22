@@ -1,7 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './CardPurchaseElement.sass'
+import { TRANSLATED_PURCHASE_TYPE, TRANSLATED_STAGES } from '../../const';
+import { formattingDateToString } from '../../helper';
 
-export default function CardPurchaseElement () {
+export const CardPurchaseElement = (props) => {
+  const item = {
+    id: props.element.id,
+    number: props.element.number,
+    name: props.element.name,
+    customer: props.element.customer,
+    startCost: props.element.startCost,
+    postingDate: props.element.postingDate,
+    dateOfAuction: props.element.dateOfAuction,
+    commodity: props.element.commodity,
+    documents: props.element.documents,
+    stage: props.element.stage,
+    type: props.element.type,
+  };
 
   //todo make tooltip
   return (
@@ -9,24 +24,24 @@ export default function CardPurchaseElement () {
       <div className='frame-element'>
         <div className='frame-element__row'>
           <div className='frame-element__col-left'>
-            <p className='frame-element__small-label-name'>Электронный аукцион</p>
-            <a className='frame-element__title-link' href='#'>№ 0888600001023000032</a>
-            <p className='frame-element__status'>Ожидает проведения</p>
+            <p className='frame-element__small-label-name'>{TRANSLATED_PURCHASE_TYPE[item.type]}</p>
+            <a className='frame-element__title-link' href='#'>№ {item.number}</a>
+            <p className='frame-element__status'>{TRANSLATED_STAGES[item.stage]}</p>
             <p className='frame-element__small-label-name'>Объект закупки</p>
-            <p className='frame-element__label-text'>Проведение лабораторных и инструментальных исследований и испытаний в рамках производственного контроля</p>
+            <p className='frame-element__label-text'>{item.name}</p>
             <p className='frame-element__small-label-name'>Заказчик</p>
-            <a className='frame-element__small-link' href='#'>ООО “Рога и Копыта”</a>
+            <a className='frame-element__small-link' href='#'>{item.customer}</a>
           </div>
           <div className='frame-element__col-right'>
             <p className='frame-element__small-label-name'>Начальная цена</p>
-            <p className='frame-element__cost'>650 903,52 ₽</p>
+            <p className='frame-element__cost'>{item.startCost} ₽</p>
             <p className='frame-element__small-label-name'>Размещено</p>
-            <p className='frame-element__date'>28.09.2023</p>
+            <p className='frame-element__date'>{formattingDateToString(item.postingDate)}</p>
             <p className='frame-element__small-label-name'>Дата проведения</p>
-            <p className='frame-element__date'>06.10.2023</p>
+            <p className='frame-element__date'>{formattingDateToString(item.dateOfAuction)}</p>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
