@@ -9,6 +9,7 @@ import { FILTERS_ID } from '../../../const';
 export const MyPurchases = () => {
   const [page, pageChange] = useState('1');
   const [purchases, purchasesChange] = useState([]);
+  const [purchasesCount, purchasesCountChange] = useState(0);
   const listFiltersIds = [
     FILTERS_ID.STAGE, 
     FILTERS_ID.DATE, 
@@ -25,6 +26,7 @@ export const MyPurchases = () => {
   useEffect(() => async() => {
     const data = await getFilterPurchases(page, {...filtersValue, ...searchValue});
     purchasesChange(data.response);
+    purchasesCountChange(data.response.length);
   }, [filtersValue, searchValue]);
 
   return (
@@ -34,7 +36,14 @@ export const MyPurchases = () => {
           <div className='purchases-page__row'>
             <div className='purchases-page__list-col-left'>
               <p className='purchases-page__title'>Результаты поиска</p>
-              <p className='purchases-page__subtitle'>Более 39 000 000 записей</p>
+              <p className='purchases-page__subtitle'>
+                {`${purchasesCount} 
+                запиc${purchasesCount===1 
+                ? 'ь'
+                : `${purchasesCount % 10 < 5 && purchasesCount % 10 !== 0 
+                  ? 'и' 
+                  : 'ей' }`}`}
+              </p>
               <div>
               {
                 purchases.map((element) => (

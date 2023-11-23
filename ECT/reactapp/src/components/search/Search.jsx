@@ -22,7 +22,7 @@ export const Search = (props) => {
           type='text'
           value={value}
           onChange={e => valueChange(e.target.value)}
-          placeholder='Введите полностью или часть номера, наименования закупки, идентификационного кода закупки (ИКЗ), наименования или ИНН Заказчика'
+          placeholder='Введите полностью или часть номера, наименования закупки, наименования или ИНН Поставщика/Заказчика'
         />
         <div className={value? 'visible' : 'hidden'}>
           <button onClick={() => valueChange('')} className='search-field__btn'>
