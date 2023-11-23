@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CardPurchaseElement.sass'
 import { TRANSLATED_PURCHASE_TYPE, TRANSLATED_STAGES } from '../../const';
-import { formattingDateToString } from '../../helper';
+import { formattingDateToString, spaceDigits } from '../../helper';
 
 export const CardPurchaseElement = (props) => {
   const item = props.element;
@@ -24,7 +24,7 @@ export const CardPurchaseElement = (props) => {
           </div>
           <div className='frame-element__col-right'>
             <p className='frame-element__small-label-name'>Начальная цена</p>
-            <p className='frame-element__cost'>{item.startCost} ₽</p>
+            <p className='frame-element__cost'>{spaceDigits(item.startCost)} ₽</p>
             <p className='frame-element__small-label-name'>Размещено</p>
             <p className='frame-element__date'>{formattingDateToString(item.postingDate)}</p>
             <p className='frame-element__small-label-name'>Дата проведения</p>
