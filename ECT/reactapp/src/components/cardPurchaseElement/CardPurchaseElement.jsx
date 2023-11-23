@@ -26,7 +26,8 @@ export const CardPurchaseElement = (props) => {
         <div className='frame-element__row'>
           <div className='frame-element__col-left'>
             <p className='frame-element__small-label-name'>{TRANSLATED_PURCHASE_TYPE[item.type]}</p>
-            <a className='frame-element__title-link' href={`purchase/${item.id}`}>№ {item.number}</a>
+            <a className={`frame-element__title-link ${disableLink ? 'frame-element__disable-link' : ''}`} 
+              href={`${disableLink ? '' : `purchase/${item.id}`}`}>№ {item.number}</a>
             <p className='frame-element__status'>{TRANSLATED_STAGES[item.stage]}</p>
             <p className='frame-element__small-label-name'>Объект закупки</p>
             <p className='frame-element__label-text'>{item.name}</p>
