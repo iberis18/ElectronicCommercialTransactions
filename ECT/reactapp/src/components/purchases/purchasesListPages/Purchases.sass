@@ -1,0 +1,55 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+
+.purchases-page
+  display: table
+  position: relative
+  width: 100%
+  background: $white    
+  padding: $big-element-padding $big-page-indent $big-page-indent $big-page-indent 
+
+  &__row
+    display: table-row
+
+  &__list-col-left
+    display: table-cell
+    vertical-align: top
+    padding:
+      right: $big-element-padding
+    width: $big-col
+  
+  &__filter-col-right
+    display: table-cell
+    vertical-align: top
+    padding:
+      left: $big-element-padding
+    width: $small-col
+  
+  &__title
+    font:
+      size: $title-font-size
+      weight: $font-weight-semibold
+    display: inline-block
+    color: $coral
+    margin: 0
+    padding: 
+      bottom: $element-padding
+
+  &__subtitle
+    font:
+      size: $subtitle-font-size
+      weight: $font-weight-semibold
+    color: $light-gray
+    display: inline-block
+    margin: 0
+    padding: 
+      left: $element-padding
+      bottom: $element-padding
+
+  &__no-elements
+    font:
+      size: $subtitle-font-size
+      weight: $font-weight-semibold
+    color: $light-gray
+    text-align: center
+    margin-top: $big-page-indent
