@@ -4,19 +4,7 @@ import { TRANSLATED_PURCHASE_TYPE, TRANSLATED_STAGES } from '../../const';
 import { formattingDateToString } from '../../helper';
 
 export const CardPurchaseElement = (props) => {
-  const item = {
-    id: props.element.id,
-    number: props.element.number,
-    name: props.element.name,
-    customer: props.element.customer,
-    startCost: props.element.startCost,
-    postingDate: props.element.postingDate,
-    dateOfAuction: props.element.dateOfAuction,
-    commodity: props.element.commodity,
-    documents: props.element.documents,
-    stage: props.element.stage,
-    type: props.element.type,
-  };
+  const item = props.element;
   const disableLink = props.disableLink || false;
 
   //todo make tooltip

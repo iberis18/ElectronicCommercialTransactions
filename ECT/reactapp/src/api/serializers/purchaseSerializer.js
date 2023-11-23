@@ -14,7 +14,7 @@ export const purchaseSerializer = (response) => {
     commodity: response.commodity && response.commodity?.length > 0 ? 
         response.commodity.map((elem) => commoditySerializer(elem)) : [],
     documents: response.documents || [],
-    stage: response.stage || STAGES_ID.WAITS,
+    stage: response.stage || STAGES_ID.ONGOING,
     type: response.type || PURCHASE_TYPE.AUCTION,
   };
 };

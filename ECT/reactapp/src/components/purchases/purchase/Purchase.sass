@@ -12,23 +12,46 @@
     background: $white    
     padding: $big-element-padding $big-page-indent $big-page-indent $big-page-indent
 
+    &__ongoing
+      margin-bottom: $after-element-margin
+
+      &-hidden
+        display: none
+      
+      &__title
+        font:
+          size: $small-title-font-size
+          weight: $font-weight-semibold
+        display: inline-block
+        color: $coral
+        margin: 0
+        padding: 
+          bottom: $element-padding
+          right: $big-element-padding
+      
+      &__button
+        display: inline-block
+        background: $white
+        color: $blue
+        font: 
+          weight: $font-weight-semibold
+        border: 
+          radius: $button-border-radius
+          width: $button-border-width
+          style: solid
+          color: $blue
+        padding: $button-padding $small-element-padding $button-padding $small-element-padding
+
+        &:hover
+          // background: $blue-light-gray-optical
+          color: $dark-blue
+          border-color: $dark-blue
+
     &__title
       font:
-        size: $title-font-size
+        size: $small-title-font-size
         weight: $font-weight-semibold
-      display: inline-block
-      color: $coral
-      margin: 0
-      padding: 
-        bottom: $element-padding
+      color: $gray
+      margin-bottom: $after-element-margin
 
-    &__subtitle
-      font:
-        size: $subtitle-font-size
-        weight: $font-weight-semibold
-      color: $light-gray
-      display: inline-block
-      margin: 0
-      padding: 
-        left: $element-padding
-        bottom: $element-padding
+  
