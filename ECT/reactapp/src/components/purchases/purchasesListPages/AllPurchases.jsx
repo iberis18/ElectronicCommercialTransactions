@@ -41,18 +41,19 @@ export const AllPurchases = () => {
             <div className='purchases-page__list-col-left'>
               <p className='purchases-page__title'>Результаты поиска</p>
               <p className='purchases-page__subtitle'>
-                {`${purchasesCount} 
-                запиc${purchasesCount===1 
-                ? 'ь'
-                : `${purchasesCount % 10 < 5 && purchasesCount % 10 !== 0 
-                  ? 'и' 
-                  : 'ей' }`}`}
+                {`${purchasesCount} запиc${purchasesCount === 1 
+                  ? 'ь'
+                  : `${purchasesCount % 10 < 5 && purchasesCount % 10 !== 0 
+                    ? 'и' 
+                    : 'ей' }`}`}
               </p>
               <div>
               {
-                purchases.map((element) => (
-                  <CardPurchaseElement key={element.id} element={element} />
-                ))
+                purchasesCount > 0
+                  ? purchases.map((element) => (
+                    <CardPurchaseElement key={element.id} element={element} />
+                  ))
+                  : <p className='purchases-page__no-elements'>Упс! Мы не нашли ни одной закупки!</p>
               }
               </div>
             </div>

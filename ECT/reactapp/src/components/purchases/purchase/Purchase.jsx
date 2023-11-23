@@ -15,9 +15,9 @@ export const Purchase = () => {
     purchaseChange(data);
   }, []);
 
-  // useEffect(() => {
-  //   console.log(purchase);
-  // }, [purchase]);
+  useEffect(() => {
+    console.log(purchase);
+  }, [purchase]);
 
   return (
     <div className='purchase-page'>
