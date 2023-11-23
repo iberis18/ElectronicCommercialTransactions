@@ -15,13 +15,18 @@
     margin-bottom: $after-element-margin
 
   &__button
-    background: $coral
-    color: $white
+    background: $white
+    color: $coral
     font: 
       weight: $font-weight-semibold
-    border-radius: $button-border-radius
-    border: none
+    border:
+      radius: $button-border-radius
+      width: $button-border-width
+      style: solid 
+      color: $coral
     padding: $button-padding $small-element-padding $button-padding $small-element-padding
+    width: 100%
 
     &:hover
-      background: $dark-coral
+      color: $dark-coral
+      border-color: $dark-coral
