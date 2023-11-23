@@ -15,9 +15,9 @@ export const Purchase = () => {
     purchaseChange(data);
   }, []);
 
-  useEffect(() => {
-    console.log(purchase);
-  }, [purchase]);
+  // useEffect(() => {
+  //   console.log(purchase);
+  // }, [purchase]);
 
   return (
     <div className='purchase-page'>
@@ -30,7 +30,7 @@ export const Purchase = () => {
           <button className='purchase-page__content__ongoing__button'>Перейти в аукционный зал</button>
         </div> 
         <p className='purchase-page__content__title'>Информация об объекте закупки</p>
-        <CommoditiesTabel commodityList={purchase.commodity}/>
+        <CommoditiesTabel commodityList={purchase.commodity} startCost={purchase.startCost} />
         <p className='purchase-page__content__title'>Документы</p>
         <a className='purchase-page__content__document' href=''>Описание объекта закупки.docx</a>
         <a className='purchase-page__content__document' href=''>ТЗ.docx</a>

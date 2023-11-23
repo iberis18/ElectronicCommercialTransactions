@@ -29,9 +29,9 @@ export const AllPurchases = () => {
     purchasesCountChange(data.response.length);
   }, [filtersValue, searchValue]);
 
-  useEffect(() => {
-    console.log(purchases);
-  }, [purchases])
+  // useEffect(() => {
+  //   console.log(purchases);
+  // }, [purchases])
 
   return (
     <>

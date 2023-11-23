@@ -26,7 +26,6 @@ const stage = (id) => {
 
 //url: baseApi/purchasesUrl/{id}
 export const getPurchase = async (id) => {
-  console.log(id);
   const response = await get(`${PURCHASES_URL}${id}`);
   let mock = {id: id, stage: stage(Number(id)), commodity: [{id: 0}, {id: 1}, {id: 2}]};
   return purchaseSerializer(mock);

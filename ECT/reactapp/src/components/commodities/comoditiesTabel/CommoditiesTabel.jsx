@@ -3,6 +3,7 @@ import './CommoditiesTabel.sass'
 
 export const CommoditiesTabel = (props) => {
   const commodityList = props.commodityList || [];
+  const startCost = props.startCost || 0;
 
   return (
     <>
@@ -31,7 +32,7 @@ export const CommoditiesTabel = (props) => {
           )
         }
         <tr className='total-sum'>
-          <td colSpan='6'>Итого: 14 991,15 ₽</td>
+          <td colSpan='6'>Итого: {startCost} ₽</td>
         </tr>
         </tbody>
       </table>
