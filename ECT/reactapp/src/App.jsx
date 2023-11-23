@@ -1,8 +1,8 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Home } from './components/home/Home';
 import { NavMenu } from './components/navMenu/NavMenu';
-import { AllPurchases } from './components/purchases/allPurchases/AllPurchases';
-import MyPurchases from './components/purchases/myPurchases/MyPurchases';
+import { AllPurchases } from './components/purchases/purchasesListPages/AllPurchases';
+import { MyPurchases } from './components/purchases/purchasesListPages/MyPurchases';
 import NewPurchases from './components/purchases/newPurchases/NewPurchases';
 import AllSte from './components/ste/allSte/AllSte';
 import MySte from './components/ste/mySte/mySte';

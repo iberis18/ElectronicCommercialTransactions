@@ -1,7 +1,7 @@
 export const commoditySerializer = (response) => {
   return {
     // ...response,
-    id: response.id || 1,
+    id: response.id || 0,
     okpd2: response.okpd2 || "22.22.19.000",
     name: response.name || "Пакет почтовый пластиковый",
     unit: response.unit || "Штука",

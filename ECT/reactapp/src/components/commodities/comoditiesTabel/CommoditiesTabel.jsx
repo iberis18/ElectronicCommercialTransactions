@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './CommodityTabel.sass'
+import './CommoditiesTabel.sass'
 
-export const CommodityTabel = (props) => {
+export const CommoditiesTabel = (props) => {
   const commodityList = props.commodityList || [];
 
   return (
@@ -19,8 +19,8 @@ export const CommodityTabel = (props) => {
         </thead>
         <tbody>
         {
-          commodityList.map((item) => 
-            <tr className='elements'>
+          commodityList.map((item, index) =>
+            <tr className='elements' key={index}>
               <td>{item.okpd2}</td>
               <td>{item.name}</td>
               <td>{item.unit}</td>

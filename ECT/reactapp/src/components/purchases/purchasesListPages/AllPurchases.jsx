@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getFilterPurchases } from '../../../api/domains/purchasesApi';
-import './AllPurchases.sass'
+import './Purchases.sass'
 import { Search } from '../../search/Search';
 import { CardPurchaseElement } from '../../cardPurchaseElement/CardPurchaseElement';
 import { Filter } from '../../filter/Filter';
@@ -27,10 +27,9 @@ export const AllPurchases = () => {
     purchasesChange(data.response);
   }, [filtersValue, searchValue]);
 
-  // useEffect(() => async() => {
-  //   const data = await getAllPurchases(page);
-  //   purchasesChange(data.response);
-  // }, []);
+  useEffect(() => {
+    console.log(purchases);
+  }, [purchases])
 
   return (
     <>
@@ -42,9 +41,8 @@ export const AllPurchases = () => {
               <p className='purchases-page__subtitle'>Более 39 000 000 записей</p>
               <div>
               {
-                purchases.map((element, index) => (
-                  //todo key={element.id}
-                  <CardPurchaseElement key={index} element={element} />
+                purchases.map((element) => (
+                  <CardPurchaseElement key={element.id} element={element} />
                 ))
               }
               </div>

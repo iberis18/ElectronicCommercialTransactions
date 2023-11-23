@@ -4,7 +4,7 @@ import { STAGES_ID, PURCHASE_TYPE } from "../../const";
 export const purchaseSerializer = (response) => {
   return {
     // ...response,
-    id: response.id || 1,
+    id: response.id || 0,
     number: response.number || "0888600001023000032",
     name: response.name || "Проведение лабораторных и инструментальных исследований и испытаний в рамках производственного контроля",
     customer: response.customer || "ООО “Рога и Копыта”",

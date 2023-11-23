@@ -15,7 +15,7 @@ import { get, put, post, postFile, del } from '../general/base.js';
 //url: baseApi/purchasesUrl/{id}
 export const getPurchase = async (id) => {
   const response = await get(`${PURCHASES_URL}${id}`);
-  let mock = {commodity: [{}, {}, {}]};
+  let mock = {commodity: [{id: 0}, {id: 1}, {id: 2}]};
   return purchaseSerializer(mock);
 };
 
@@ -28,6 +28,6 @@ export const getFilterPurchases = async (page, filter) => {
     customerName: filter.name || '',
     ///...
   });
-  let mock = [{commodity: [{}, {}, {}]}, {commodity: [{}, {}, {}]}, {commodity: [{}, {}, {}]}, {commodity: [{}, {}, {}]}];
+  let mock = [{id: 0, commodity: [{}, {}, {}]}, {id: 1, commodity: [{}, {}, {}]}, {id: 2, commodity: [{}, {}, {}]}, {id: 3, commodity: [{}, {}, {}]}];
   return purchaseSerializerList(mock);
 };
