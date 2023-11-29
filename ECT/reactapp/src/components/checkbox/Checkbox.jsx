@@ -20,7 +20,7 @@ export const Checkbox = (props) => {
           type="checkbox" 
           checked={checked} 
           onChange={() => checkboxHandler(!checked)} 
-        />
+        />  
         <label className='checkbox__label'>{label}</label>
       </div>
    </>
