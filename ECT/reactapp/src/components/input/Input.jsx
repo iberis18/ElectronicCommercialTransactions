@@ -6,7 +6,7 @@ export const Input = (props) => {
   const parentCallback = props.parentCallback;
   const type = props.type || 'text';
   const elementKey = props.elementKey || '';
-  const [value, valueChange] = useState('');
+  const [value, valueChange] = useState(props.value || '');
   
   const inputHandler = (value) => {
     valueChange(value);

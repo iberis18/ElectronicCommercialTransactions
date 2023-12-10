@@ -23,6 +23,7 @@
       color: $coral
       font-size: $title-font-size
       font-weight: $font-weight-semibold
+      margin: 0
 
     &__close-btn
       position: fixed
@@ -30,19 +31,24 @@
       top: $element-padding
       border: none
       background: transparent
+      line-height: $icon-size
+      padding: 0
       &__icon
         width: $icon-size
         height: $icon-size
         fill: $gray
 
     &__footler
-      padding-bottom: $big-element-padding
-
+      width: 100%
+      
       &__close-btn
-        position: fixed
-        left: $big-element-padding
         background: $white
+        width: 40%
+        min-width: 120px
+        float: left
+        margin-right: $after-element-margin
         color: $gray
+        line-height: $line-height
         font: 
           weight: $font-weight-semibold
         border:
@@ -53,10 +59,12 @@
         padding: $button-padding $small-element-padding
 
       &__confirm-btn
-        position: fixed
-        right: $big-element-padding
         background: $white
+        width: 40%
+        min-width: 120px
+        float: right
         color: $coral
+        line-height: $line-height
         font: 
           weight: $font-weight-semibold
         border:

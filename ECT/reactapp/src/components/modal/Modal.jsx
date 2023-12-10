@@ -11,7 +11,7 @@ export const Modal = (props) => {
   const { isModalOpen, openModal, closeModal, modalContent } = useModal();
 
   function handleButtonClick() {
-    openModal(<ModalContent onClose={closeModal}  data={data} title={title} />);
+    openModal(<ModalContent onClose={closeModal} parentCallback={parentCallback} title={title} data={data} />);
   }
 
   return (
@@ -24,7 +24,7 @@ export const Modal = (props) => {
   );
 }
 
-function ModalContent({ onClose, data }) {
+function ModalContent({ onClose, data, title, parentCallback }) {
   function handleConfirm() {
     parentCallback();
     onClose();
@@ -33,7 +33,7 @@ function ModalContent({ onClose, data }) {
   return (
     <div className='modal-window'>
       <div className='modal-window__component'>
-        <p className='modal-window__component__title'>Modal Content</p>
+        <p className='modal-window__component__title'>{title}</p>
         <button onClick={onClose} className='modal-window__component__close-btn'>
           <CrossIcon className='modal-window__component__close-btn__icon' />
         </button>
