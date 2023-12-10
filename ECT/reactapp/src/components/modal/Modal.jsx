@@ -7,10 +7,11 @@ export const Modal = (props) => {
   const data = props.dataComponent || '';
   const title = props.title || '';
   const callBtn = props.button || <button>ModalBtn</button>
+  const parentCallback = props.parentCallback;
   const { isModalOpen, openModal, closeModal, modalContent } = useModal();
 
   function handleButtonClick() {
-    openModal(<ModalContent onClose={closeModal} data={data} title={title} />);
+    openModal(<ModalContent onClose={closeModal}  data={data} title={title} />);
   }
 
   return (
@@ -25,7 +26,7 @@ export const Modal = (props) => {
 
 function ModalContent({ onClose, data }) {
   function handleConfirm() {
-    console.log('Confirmed with data:', data);
+    parentCallback();
     onClose();
   }
 
