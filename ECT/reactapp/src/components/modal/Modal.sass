@@ -1,0 +1,68 @@
+@import '../../colors.sass'
+@import '../../const.sass'
+
+.modal-window 
+  position: fixed
+  top: 0px
+  left: 0px
+  z-index: 999999
+  width: 100%
+  height: 100%
+  background: $disable-color
+
+  &__component
+    position: fixed
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    padding: $big-element-padding
+    background-color: $white
+
+    &__title
+      display: inline-block
+      color: $coral
+      font-size: $title-font-size
+      font-weight: $font-weight-semibold
+
+    &__close-btn
+      position: fixed
+      right: $element-padding
+      top: $element-padding
+      border: none
+      background: transparent
+      &__icon
+        width: $icon-size
+        height: $icon-size
+        fill: $gray
+
+    &__footler
+      padding-bottom: $big-element-padding
+
+      &__close-btn
+        position: fixed
+        left: $big-element-padding
+        background: $white
+        color: $gray
+        font: 
+          weight: $font-weight-semibold
+        border:
+          radius: $button-border-radius
+          width: $button-border-width
+          style: solid 
+          color: $gray
+        padding: $button-padding $small-element-padding
+
+      &__confirm-btn
+        position: fixed
+        right: $big-element-padding
+        background: $white
+        color: $coral
+        font: 
+          weight: $font-weight-semibold
+        border:
+          radius: $button-border-radius
+          width: $button-border-width
+          style: solid 
+          color: $coral
+        padding: $button-padding $small-element-padding
+

@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './Radiobutton.sass'
 
 export const Radiobutton = (props) => {
-  const [list, changeList] = useState(props.list || []);
+  const groupName = props.groupName || '';
   const parentCallback = props.parentCallback;
+  const [list, changeList] = useState(props.list || []);
   
   const radiobuttonHandler = (value) => {
-    let tmp = list.map(item => {
+    let result = list.map(item => {
       return {
         ...item, 
         checked: false,
     }});
-    tmp.find(item => item.value == value).checked = true;   
-    changeList(tmp);
+    result.find(item => item.value == value).checked = true;   
+    changeList(result);
+    parentCallback(result);
 
     // changeList(list.map(item => {
     //   let returnValue = {...item};
@@ -25,10 +27,6 @@ export const Radiobutton = (props) => {
     //   return returnValue;
     // }));
   }
-  
-  // useEffect(() => {
-  //   console.log(list);
-  // }, [list])
 
   return (
     <>
@@ -38,7 +36,8 @@ export const Radiobutton = (props) => {
           <div className='radiobuttons__item' key={item.value}>
             <input
               className='radiobuttons__item__input'
-              type="radio"
+              name={groupName}
+              type='radio'
               checked={item.checked}
               id={item.value}
               onChange={() => radiobuttonHandler(item.value)}
