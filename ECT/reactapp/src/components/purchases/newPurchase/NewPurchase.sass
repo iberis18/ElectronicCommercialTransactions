@@ -16,8 +16,10 @@
     color: $coral
     margin: 0
     padding-bottom: $element-padding
+    line-height: $big-line-height
 
   &__subtitle
+    line-height: $big-line-height
     font:
       size: $subtitle-font-size
       weight: $font-weight-semibold
@@ -32,8 +34,6 @@
   &__date
     width: $small-col
 
-  &__info
-  
   &__modal-btn 
     border: none
     background: transparent
@@ -42,3 +42,17 @@
       height: $icon-size
       fill: $gray
 
+  &__submit-btn
+    float: right
+    background: $coral
+    color: $white
+    font: 
+      weight: $font-weight-semibold
+    border:
+      radius: $button-border-radius
+      style: solid 
+      color: $coral
+    padding: $button-padding $small-element-padding
+    &:hover
+      color: $dark-coral
+      border-color: $dark-coral

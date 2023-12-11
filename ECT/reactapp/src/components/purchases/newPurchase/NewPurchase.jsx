@@ -6,6 +6,7 @@ import { Radiobutton } from '../../radiobutton/Radiobutton';
 import { PURCHASE_TYPE, TRANSLATED_PURCHASE_TYPE } from '../../../const';
 import { Input } from '../../input/Input';
 import { EditableCommoditiesTabel } from '../../commodities/editableCommoditiesTabel/EditableCommoditiesTabel';
+import { Documents } from '../../documents/Documents';
 
 
 export const NewPurchase = () => {
@@ -23,6 +24,10 @@ export const NewPurchase = () => {
     purchaseChange(data);
   }, []);
 
+  const submit = () => {
+
+  }
+  
   // useEffect(() => {
   //   console.log(auctionDate);
   // }, [auctionDate]);
@@ -37,10 +42,10 @@ export const NewPurchase = () => {
         <p className='new-purchase-page__subtitle'>Дата проведения</p>
         <Input type='datetime-local' parentCallback={setAuctionDate} />
       </div>
-      <div className='new-purchase-page__info'>
-        <p className='new-purchase-page__subtitle'>Информация об объекте закупки</p>
-        <EditableCommoditiesTabel />
-      </div>
+      <p className='new-purchase-page__subtitle'>Информация об объекте закупки</p>
+      <EditableCommoditiesTabel />
+      <Documents />
+      <button className='new-purchase-page__submit-btn' onClick={submit}>Опубликовать закупку</button>
     </div>
   )
 }
