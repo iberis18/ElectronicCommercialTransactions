@@ -10,7 +10,7 @@ export const Input = (props) => {
   
   const inputHandler = (value) => {
     valueChange(value);
-    parentCallback(value, elementKey);
+    parentCallback(value, props.elementKey);
   }
 
   return (

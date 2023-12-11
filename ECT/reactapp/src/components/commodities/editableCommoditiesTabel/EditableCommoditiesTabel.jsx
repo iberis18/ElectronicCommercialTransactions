@@ -5,7 +5,7 @@ import { Okpd2 } from '../../okpd2/Okpd2';
 import { Modal } from '../../modal/Modal';
 import DropdownIcon from '../../../assets/dropdown.svg?react';
 import { Input } from '../../input/Input';
-import { name } from 'file-loader';
+import CrossIcon from '../../../assets/cross.svg?react';
 
 export const EditableCommoditiesTabel = (props) => {
   const [commodityList, changeCommodityList] =  useState(props.commodityList || [{
@@ -16,13 +16,16 @@ export const EditableCommoditiesTabel = (props) => {
     price: '',
     cost: '0.00',
   }]);
-  const startCost = props.startCost || 0.00;
+  const [startCost, setStartCost] = useState(props.startCost || 0.00);
 
   const okpd2ModalCallback = (value) => {
   }
 
   useEffect(() => {
     console.log(commodityList);
+    let sum = 0;
+    commodityList.map((item) => sum += Number(item.cost));
+    setStartCost(sum.toFixed(2));
   }, [commodityList]);
 
   const nameCallback = (value, elementKey) => {
@@ -35,25 +38,30 @@ export const EditableCommoditiesTabel = (props) => {
   }
 
   const quantityCallback = (value, elementKey) => {
-    changeCommodityList(commodityList.map((item, index) => {
-      var returnValue = {...item};
-      if (elementKey == index) {
-        returnValue.quantity = value;
-        returnValue.cost = (item.quantity * item.price).toFixed(2);
-      }
-      return (returnValue);
-    }));
+    commodityList[elementKey].quantity = value;
+    commodityList[elementKey].cost = (commodityList[elementKey].quantity * commodityList[elementKey].price).toFixed(2);
+    changeCommodityList([...commodityList]);
   }
 
   const priceCallback = (value, elementKey) => {
-    changeCommodityList(commodityList.map((item, index) => {
-      var returnValue = {...item};
-      if (elementKey == index) {
-        returnValue.price = value;
-        returnValue.cost = (item.quantity * item.price).toFixed(2)
-      }
-      return (returnValue);
-    }));
+    commodityList[elementKey].price = value;
+    commodityList[elementKey].cost = (commodityList[elementKey].quantity * commodityList[elementKey].price).toFixed(2);
+    changeCommodityList([...commodityList]);
+  }
+
+  const deliteItem = (index) => {
+    changeCommodityList([...commodityList.slice(0, index), ...commodityList.slice(index + 1)]);
+  }
+
+  const addItem = () => {
+    changeCommodityList([...commodityList, {
+      okpd2: 'ОКПД2', 
+      name: '', 
+      unit: 'Штука', 
+      quantity: '',
+      price: '',
+      cost: '0.00',
+    }]);
   }
 
   const modalDropdownBtn = () => {
@@ -94,14 +102,22 @@ export const EditableCommoditiesTabel = (props) => {
                   <Modal dataComponent={<></>} title='Единицы измерения' button={modalDropdownBtn()} parentCallback={nameCallback} />
                 </div>
               </td>
-              <td><Input placeholder='0.00' value={spaceDigits(item.quantity)} parentCallback={quantityCallback} elementKey={index} /></td>
-              <td><Input placeholder='0.00' value={spaceDigits(item.price)} parentCallback={priceCallback} elementKey={index} /></td>
+              <td><Input type='number' placeholder='0.00' value={item.quantity} parentCallback={quantityCallback} elementKey={index} /></td>
+              <td><Input type='number' placeholder='0.00' value={spaceDigits(item.price)} parentCallback={priceCallback} elementKey={index} /></td>
               <td>{spaceDigits(item.cost)}</td>
+              <td>
+                <button onClick={() => deliteItem(index)} className='editable-commodity-tabel__modal-btn'>
+                  <CrossIcon className='editable-commodity-tabel__modal-btn__icon' />
+                </button>
+              </td>
             </tr>
           )
         }
-        <tr className='total-sum'>
-          <td colSpan='6'>Итого: {spaceDigits(startCost)} ₽</td>
+        <tr className='total'>
+          <td className='button' colSpan='3'>
+            <button className='add-button' onClick={addItem}>Добавить позицию</button>
+          </td>
+          <td className='sum' colSpan='4'>Итого: {spaceDigits(startCost)} ₽</td>
         </tr>
         </tbody>
       </table>
