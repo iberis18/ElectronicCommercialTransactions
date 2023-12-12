@@ -8,6 +8,7 @@ import { Input } from '../../input/Input';
 import CrossIcon from '../../../assets/cross.svg?react';
 
 export const EditableCommoditiesTabel = (props) => {
+  const parentCallback = props.parentCallback;
   const [commodityList, changeCommodityList] =  useState(props.commodityList || [{
     okpd2: 'ОКПД2', 
     name: '', 
@@ -26,6 +27,7 @@ export const EditableCommoditiesTabel = (props) => {
     let sum = 0;
     commodityList.map((item) => sum += Number(item.cost));
     setStartCost(sum.toFixed(2));
+    parentCallback(commodityList, sum);
   }, [commodityList]);
 
   const nameCallback = (value, elementKey) => {

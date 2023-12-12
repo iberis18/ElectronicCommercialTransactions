@@ -1,4 +1,4 @@
-import { PURCHASES_URL, STAGES_ID, MY_PURCHASES_URL } from '../../const.js';
+import { PURCHASES_URL, STAGES_ID, MY_PURCHASES_URL, NEW_PURCHASES_URL } from '../../const.js';
 import { purchaseSerializerList } from '../serializers/purchaseSerializerList.js';
 import { purchaseSerializer } from '../serializers/purchaseSerializer.js';
 import { get, put, post, postFile, del } from '../general/base.js';
@@ -63,4 +63,28 @@ export const getMyFilterPurchases = async (page, filter) => {
     {id: 1, stage: stage(1), commodity: [{}, {}, {}]}
   ];
   return purchaseSerializerList(mock);
+};
+
+export const addNewPurchases = async (body) => {
+  const response = await post(`${NEW_PURCHASES_URL}`, {
+    name: body.name,
+    customer: body.customer,
+    startCost: body.startCost,
+    postingDate: new Date(),
+    dateOfAuction: body.dateOfAuction,
+    commodity: body.commodity.map((elem) => { 
+      return {
+        okpd2: elem.okpd2,
+        name: elem.name,
+        unit: elem.unit,
+        quantity: elem.quantity,
+        price: elem.price,
+        cost: elem.cost,
+      }
+    }),
+    documents: body.documents,
+    stage: body.stage,
+    type: body.type,
+  });
+  return (response);
 };
