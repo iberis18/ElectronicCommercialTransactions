@@ -86,5 +86,5 @@ export const addNewPurchases = async (body) => {
     stage: body.stage,
     type: body.type,
   });
-  return (response);
+  return ({id: 1});
 };

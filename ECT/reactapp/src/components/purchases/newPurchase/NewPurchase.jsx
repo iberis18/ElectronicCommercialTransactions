@@ -7,7 +7,7 @@ import { PURCHASE_TYPE, STAGES_ID, TRANSLATED_PURCHASE_TYPE } from '../../../con
 import { Input } from '../../input/Input';
 import { EditableCommoditiesTabel } from '../../commodities/editableCommoditiesTabel/EditableCommoditiesTabel';
 import { Documents } from '../../documents/Documents';
-
+import { useNavigate } from 'react-router-dom';
 
 export const NewPurchase = () => {
   const [radioPurchaseTypes, setRadioPurchaseTypes] = useState(
@@ -21,6 +21,7 @@ export const NewPurchase = () => {
   const [name, nameCallback] = useState('');
   const [startCost, setStartCost] = useState(0);
   const [commodityList, changeCommodityList] =  useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => async() => {
     const data = await getPurchase(1);
@@ -53,7 +54,9 @@ export const NewPurchase = () => {
       stage: STAGES_ID.WAITS,
       type: (radioPurchaseTypes.filter(elem => elem.checked === true))[0].value,
     });
-    console.log(response);
+    // console.log(response);
+    alert('Успешно добавлено!');
+    navigate(`/purchase/${response.id}`);
   }
 
   // useEffect(() => {
