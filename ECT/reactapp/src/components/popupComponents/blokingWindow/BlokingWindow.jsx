@@ -1,11 +1,11 @@
 import React from 'react';
 import './BlokingWindow.sass'
 
-export const BlokingWindow = ({ show, message, title }) => {
+export const BlokingWindow = ({ show, message, title, contentElement }) => {
   if (!show) {
     return null;
   }
-  
+
   return (
     <div className='bloking-window'>
       <div className='bloking-window__content'>
@@ -15,6 +15,7 @@ export const BlokingWindow = ({ show, message, title }) => {
         <p className='bloking-window__content__data'>
           {message}
         </p>
+        <>{contentElement}</>
       </div>
     </div>
   );

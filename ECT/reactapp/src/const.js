@@ -41,3 +41,10 @@ export const TRANSLATED_PURCHASE_TYPE = {
   [PURCHASE_TYPE.AUCTION]: 'Электронный аукцион',
   [PURCHASE_TYPE.QUOTATION]: 'Запрос котировок',
 };
+
+export const ALERT_LEVEL = {
+  INFO: 'INFO',
+  ERROR: 'ERROR',
+  SUCCESS: 'SUCCESS',
+  WARNING: 'WARNING',
+};

@@ -3,13 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { addNewPurchases, getPurchase } from '../../../api/domains/purchasesApi';
 import './NewPurchase.sass';
 import { Radiobutton } from '../../radiobutton/Radiobutton';
-import { PURCHASE_TYPE, STAGES_ID, TRANSLATED_PURCHASE_TYPE } from '../../../const';
+import { ALERT_LEVEL, PURCHASE_TYPE, STAGES_ID, TRANSLATED_PURCHASE_TYPE } from '../../../const';
 import { Input } from '../../input/Input';
 import { EditableCommoditiesTabel } from '../../commodities/editableCommoditiesTabel/EditableCommoditiesTabel';
 import { Documents } from '../../documents/Documents';
 import { useNavigate } from 'react-router-dom';
+import { Alert } from '../../popupComponents/alert/Alert';
+import { usePopup } from '../../popupComponents/usePopup';
 
 export const NewPurchase = () => {
+  const [isShowingAlert, toggleAlert] = usePopup();
   const [radioPurchaseTypes, setRadioPurchaseTypes] = useState(
     Object.keys(PURCHASE_TYPE).map(key => ({
     value: key,
@@ -56,6 +59,8 @@ export const NewPurchase = () => {
     });
     // console.log(response);
     alert('Успешно добавлено!');
+    // if(!isShowingAlert)
+    //   toggleAlert();
     navigate(`/purchase/${response.id}`);
   }
 
@@ -65,6 +70,14 @@ export const NewPurchase = () => {
 
   return (
     <div className='new-purchase-page'>
+      {/* <Alert 
+        show={isShowingAlert}
+        onClose={toggleAlert}
+        message={'Новая закупка успешно добавлена!'}
+        title={'Успешно!'} 
+        level={ALERT_LEVEL.SUCCESS}
+      /> */}
+
       <p className='new-purchase-page__title'>Создать новую закупку</p>
       <div className='new-purchase-page__radio'>
         <Radiobutton list={radioPurchaseTypes} groupName='purchase-type' parentCallback={setRadioPurchaseTypes} />

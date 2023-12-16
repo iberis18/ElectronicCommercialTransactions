@@ -5,13 +5,15 @@ import { getPurchase } from '../../api/domains/purchasesApi';
 import { ProgressBar } from '../progressBar/ProgressBar';
 import { formattingNumerToTwoDigits, spaceDigits } from '../../helper';
 import _ from 'lodash';
-import { STAGES_ID, TRANSLATED_STAGES } from '../../const';
+import { ALERT_LEVEL, STAGES_ID, TRANSLATED_STAGES } from '../../const';
 import { BlokingWindow } from "../popupComponents/blokingWindow/BlokingWindow";
 import { usePopup } from "../popupComponents/usePopup";
+import { Alert } from '../popupComponents/alert/Alert';
 
 export const AuctionRoom = () => {
   const { id } = useParams();  
   const [isShowingBlokingWindow, toggleBlokingWindow] = usePopup();
+  const [isShowingAlert, toggleAlert] = usePopup();
   const [purchase, purchaseChange] = useState({});
   const [curentCost, setCurentCost] = useState(0);
   const [drop, setDrop] = useState(0);
@@ -77,7 +79,8 @@ export const AuctionRoom = () => {
       setMin((topList.filter((item => item.place === 1))[0]?.value * 0.95).toFixed(2));
     }
     else 
-      alert(`input over of range! ${min}, ${max}, ${inputPrice}`);
+      if(!isShowingAlert)
+        toggleAlert();
   }
 
   useEffect(() => async() => {
@@ -106,6 +109,13 @@ export const AuctionRoom = () => {
           ? 'Аукцион скоро начнется! Вернитесь сюда чуть позже.'
           : 'Аукцион завершен! Подать предложения больше невозможно!'
         } 
+      />
+      <Alert 
+        show={isShowingAlert}
+        onClose={toggleAlert}
+        message={`Подаваемое предложение находится вне шага аукициона (от ${min} руб. до ${max} руб.)`}
+        title={'Ошибка!'} 
+        level={ALERT_LEVEL.ERROR}
       />
       
       <div className='auction-room__row'>
