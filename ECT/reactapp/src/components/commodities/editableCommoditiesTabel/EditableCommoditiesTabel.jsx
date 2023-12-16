@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './EditableCommoditiesTabel.sass'
 import { spaceDigits } from '../../../helper';
 import { Okpd2 } from '../../okpd2/Okpd2';
-import { Modal } from '../../modal/Modal';
+import { Modal } from '../../popupComponents/modal/Modal';
+import { usePopup } from '../../popupComponents/usePopup';
 import DropdownIcon from '../../../assets/dropdown.svg?react';
 import { Input } from '../../input/Input';
 import CrossIcon from '../../../assets/cross.svg?react';
 
 export const EditableCommoditiesTabel = (props) => {
   const parentCallback = props.parentCallback;
+  const [isShowingOkpd2Modal, toggleOkpd2Modal] = usePopup();
+  const [isShowingUnitModal, toggleUnitModal] = usePopup();
+
   const [commodityList, changeCommodityList] =  useState(props.commodityList || [{
     okpd2: 'ОКПД2', 
     name: '', 
@@ -20,6 +24,9 @@ export const EditableCommoditiesTabel = (props) => {
   const [startCost, setStartCost] = useState(props.startCost || 0.00);
 
   const okpd2ModalCallback = (value) => {
+  }
+
+  const unitCallback = (value) => {
   }
 
   useEffect(() => {
@@ -66,14 +73,6 @@ export const EditableCommoditiesTabel = (props) => {
     }]);
   }
 
-  const modalDropdownBtn = () => {
-    return(
-      <button className='editable-commodity-tabel__modal-btn'>
-        <DropdownIcon className='editable-commodity-tabel__modal-btn__icon' />
-      </button>
-    )
-  }
-
   return (
     <>
       <table className='editable-commodity-tabel'>
@@ -94,14 +93,20 @@ export const EditableCommoditiesTabel = (props) => {
               <td>
                 <div className='editable-commodity-tabel__inline-item'>{item.okpd2}</div>
                 <div className='editable-commodity-tabel__inline-item'>
-                  <Modal dataComponent={<Okpd2 />} title='Код ОКПД2' button={modalDropdownBtn()} parentCallback={okpd2ModalCallback} />
+                  <Modal show={isShowingOkpd2Modal} onClose={toggleOkpd2Modal} parentCallback={okpd2ModalCallback} data={<Okpd2 />} title='Код ОКПД2' />
+                  <button onClick={toggleOkpd2Modal} className='editable-commodity-tabel__modal-btn'>
+                    <DropdownIcon className='editable-commodity-tabel__modal-btn__icon' />
+                  </button>
                 </div>
               </td>
               <td><Input value={item.name} placeholder='Название товара/работы/услуги' parentCallback={nameCallback} elementKey={index} /></td>
               <td>
                 <div className='editable-commodity-tabel__inline-item'>{item.unit}</div>
                 <div className='editable-commodity-tabel__inline-item'>
-                  <Modal dataComponent={<></>} title='Единицы измерения' button={modalDropdownBtn()} parentCallback={nameCallback} />
+                  <Modal show={isShowingUnitModal} onClose={toggleUnitModal} parentCallback={unitCallback} data={<></>} title='Единицы измерения' />
+                  <button onClick={toggleUnitModal} className='editable-commodity-tabel__modal-btn'>
+                    <DropdownIcon className='editable-commodity-tabel__modal-btn__icon' />
+                  </button>
                 </div>
               </td>
               <td><Input type='number' placeholder='0.00' value={item.quantity} parentCallback={quantityCallback} elementKey={index} /></td>

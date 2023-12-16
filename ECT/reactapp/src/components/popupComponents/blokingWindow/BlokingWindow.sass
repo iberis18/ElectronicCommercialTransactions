@@ -1,0 +1,34 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+
+.bloking-window
+  position: fixed
+  top: 0px
+  left: 0px
+  z-index: 999999
+  width: 100%
+  height: 100%
+  background: $disable-color
+
+  &__content
+    position: fixed
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    padding: $page-indent
+    background-color: $white
+
+    &__title
+      color: $coral
+      font-size: $title-font-size
+      font-weight: $font-weight-semibold
+      margin: 0
+      text-align: center
+      padding-bottom: $element-padding
+    
+    &__data
+      text-align: center
+      color: $gray
+      font-size: $subtitle-font-size
+      font-weight: $font-weight-regular
+      margin: 0

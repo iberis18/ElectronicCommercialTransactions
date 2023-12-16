@@ -1,30 +1,12 @@
 import React from 'react';
-import useModal from './useModal';
 import './Modal.sass'
-import CrossIcon from './../../assets/cross.svg?react';
+import CrossIcon from '../../../assets/cross.svg?react';
 
-export const Modal = (props) => {
-  const data = props.dataComponent || '';
-  const title = props.title || '';
-  const callBtn = props.button || <button>ModalBtn</button>
-  const parentCallback = props.parentCallback;
-  const { isModalOpen, openModal, closeModal, modalContent } = useModal();
-
-  function handleButtonClick() {
-    openModal(<ModalContent onClose={closeModal} parentCallback={parentCallback} title={title} data={data} />);
+export const Modal = ({ show, onClose, parentCallback, data, title }) => {
+  if (!show) {
+    return null;
   }
 
-  return (
-    <div>
-      <div onClick={handleButtonClick}>
-        {callBtn}
-      </div>
-      {isModalOpen && modalContent}
-    </div>
-  );
-}
-
-const ModalContent = ({ onClose, data, title, parentCallback }) => {
   function handleConfirm() {
     parentCallback();
     onClose();
@@ -47,4 +29,4 @@ const ModalContent = ({ onClose, data, title, parentCallback }) => {
       </div>
     </div>
   );
-}
+};

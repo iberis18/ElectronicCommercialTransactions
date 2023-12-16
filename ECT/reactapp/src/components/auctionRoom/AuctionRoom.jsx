@@ -5,10 +5,13 @@ import { getPurchase } from '../../api/domains/purchasesApi';
 import { ProgressBar } from '../progressBar/ProgressBar';
 import { formattingNumerToTwoDigits, spaceDigits } from '../../helper';
 import _ from 'lodash';
-import { STAGES_ID } from '../../const';
+import { STAGES_ID, TRANSLATED_STAGES } from '../../const';
+import { BlokingWindow } from "../popupComponents/blokingWindow/BlokingWindow";
+import { usePopup } from "../popupComponents/usePopup";
 
 export const AuctionRoom = () => {
-  const { id } = useParams();
+  const { id } = useParams();  
+  const [isShowingBlokingWindow, toggleBlokingWindow] = usePopup();
   const [purchase, purchaseChange] = useState({});
   const [curentCost, setCurentCost] = useState(0);
   const [drop, setDrop] = useState(0);
@@ -79,8 +82,10 @@ export const AuctionRoom = () => {
 
   useEffect(() => async() => {
     const data = await getPurchase(id);
-    if (data.stage !== STAGES_ID.ONGOING)
+    if (data.stage !== STAGES_ID.ONGOING) {
       setDelay(0);
+      toggleBlokingWindow();
+    }
     purchaseChange(data);
     setCurentCost(data.startCost.toFixed(2));
     changeInputPrice('');
@@ -94,8 +99,16 @@ export const AuctionRoom = () => {
 
   return (
     <div className='auction-room'>
+      <BlokingWindow 
+        show={isShowingBlokingWindow} 
+        title={TRANSLATED_STAGES[purchase.stage]}
+        message={purchase.stage === STAGES_ID.WAITS 
+          ? 'Аукцион скоро начнется! Вернитесь сюда чуть позже.'
+          : 'Аукцион завершен! Подать предложения больше невозможно!'
+        } 
+      />
+      
       <div className='auction-room__row'>
-
         {/* левый столбик */}
         <div className='auction-room__col'>
           <p className='auction-room__title'>Торговый зал</p>
