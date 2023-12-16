@@ -24,7 +24,7 @@ export const Modal = (props) => {
   );
 }
 
-function ModalContent({ onClose, data, title, parentCallback }) {
+const ModalContent = ({ onClose, data, title, parentCallback }) => {
   function handleConfirm() {
     parentCallback();
     onClose();
