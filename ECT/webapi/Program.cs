@@ -1,6 +1,13 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using webapi;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+// builder.Services.AddDbContext<EctContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
 
 // Add services to the container.
 
