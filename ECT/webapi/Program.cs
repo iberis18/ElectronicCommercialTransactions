@@ -7,8 +7,6 @@ using webapi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<EctContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("connection")));
-
 // Add services to the container.
 
 builder.Services.AddCors(options =>

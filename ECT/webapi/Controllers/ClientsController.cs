@@ -6,26 +6,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using webapi;
+using dal;
 
 namespace webapi.Controllers
 {
 
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ClientsController : ControllerBase
     {
-        private readonly EctContext _context;
+        private ECTContext _context;
 
-        public ClientsController(EctContext context)
+        public ClientsController()
         {
-            _context = context;
+            _context = new ECTContext();
         }
 
         // GET: Clients
-        [HttpGet(Name = "GetClients")]
+        [HttpGet]
         public IEnumerable<Client> Get()
         {
-            return _context.Clients.ToArray();
+            return _context.Client.ToList();
         }
     }
 }
