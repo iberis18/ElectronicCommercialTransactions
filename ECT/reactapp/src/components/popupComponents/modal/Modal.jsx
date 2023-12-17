@@ -20,7 +20,7 @@ export const Modal = ({ show, onClose, parentCallback, data, title }) => {
           <CrossIcon className='modal-window__component__close-btn__icon' />
         </button>
 
-        <div>{data}</div>
+        <div className='modal-window__component__content'>{data}</div>
         
         <div className='modal-window__component__footler'>
           <button className='modal-window__component__footler__close-btn' onClick={onClose}>Закрыть</button>
