@@ -113,7 +113,7 @@ export const AuctionRoom = () => {
       <Alert 
         show={isShowingAlert}
         onClose={toggleAlert}
-        message={`Подаваемое предложение находится вне шага аукициона (от ${min} руб. до ${max} руб.)`}
+        message={`Подаваемое предложение находится вне шага аукициона!`}
         title={'Ошибка!'} 
         level={ALERT_LEVEL.ERROR}
       />

@@ -3,10 +3,9 @@
 
 .alert
   position: fixed
-  right: 0
-  top: 0
+  right: 1%
+  top: $height-nav-menu
   padding: 0
-  border: none
   margin: 0
   // transform: translate(-50%,-50%)
 
@@ -83,8 +82,8 @@
 
   &__close-btn
     position: fixed
-    right: $smallest-element-padding
-    top: $smallest-element-padding
+    right: $element-padding + $smallest-element-padding
+    top: $height-nav-menu + $smallest-element-padding
     border: none
     background: transparent
     line-height: $icon-size

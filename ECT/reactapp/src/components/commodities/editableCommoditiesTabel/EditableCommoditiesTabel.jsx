@@ -28,10 +28,10 @@ export const EditableCommoditiesTabel = (props) => {
       commodityList[elementKey].okpd2 = value;
       changeCommodityList([...commodityList]);
     }    
-  }
+  };
 
   const unitCallback = (value) => {
-  }
+  };
 
   useEffect(() => {
     console.log(commodityList);
