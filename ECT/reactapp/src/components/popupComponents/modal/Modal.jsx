@@ -8,7 +8,8 @@ export const Modal = ({ show, onClose, parentCallback, data, title }) => {
   }
 
   function handleConfirm() {
-    parentCallback();
+    if (parentCallback)
+      parentCallback();
     onClose();
   }
 

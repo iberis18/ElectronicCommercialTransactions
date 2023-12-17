@@ -23,7 +23,11 @@ export const EditableCommoditiesTabel = (props) => {
   }]);
   const [startCost, setStartCost] = useState(props.startCost || 0.00);
 
-  const okpd2ModalCallback = (value) => {
+  const okpd2ModalCallback = (value, elementKey) => {
+    if (value) {
+      commodityList[elementKey].okpd2 = value;
+      changeCommodityList([...commodityList]);
+    }    
   }
 
   const unitCallback = (value) => {
@@ -93,7 +97,7 @@ export const EditableCommoditiesTabel = (props) => {
               <td>
                 <div className='editable-commodity-tabel__inline-item'>{item.okpd2}</div>
                 <div className='editable-commodity-tabel__inline-item'>
-                  <Modal show={isShowingOkpd2Modal} onClose={toggleOkpd2Modal} parentCallback={okpd2ModalCallback} data={<Okpd2 />} title='Код ОКПД2' />
+                  <Modal show={isShowingOkpd2Modal} onClose={toggleOkpd2Modal} data={<Okpd2 parentCallback={okpd2ModalCallback} elementKey={index} />} title='Код ОКПД2' />
                   <button onClick={toggleOkpd2Modal} className='editable-commodity-tabel__modal-btn'>
                     <DropdownIcon className='editable-commodity-tabel__modal-btn__icon' />
                   </button>
