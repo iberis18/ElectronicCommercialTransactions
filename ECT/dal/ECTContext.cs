@@ -36,8 +36,8 @@ namespace dal
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasPostgresEnum(null, "stage", new[] { "WAITS", "COMPLETED", "CANCELED", "ONGOING" })
-                .HasPostgresEnum(null, "type", new[] { "AUCTION", "QUOTATION" });
+            //modelBuilder.HasPostgresEnum(null, "stage", new[] { "WAITS", "COMPLETED", "CANCELED", "ONGOING" })
+            //    .HasPostgresEnum(null, "type", new[] { "AUCTION", "QUOTATION" });
 
             modelBuilder.Entity<Client>(entity =>
             {
@@ -133,6 +133,12 @@ namespace dal
                 entity.Property(e => e.Name)
                    .HasColumnName("name")
                    .HasColumnType("character varying(300)[]");
+
+                entity.Property(e => e.Stage)
+                    .HasColumnName("stage");
+                
+                entity.Property(e => e.Type)
+                    .HasColumnName("type");
             });
 
             modelBuilder.Entity<PurchaseHistory>(entity =>

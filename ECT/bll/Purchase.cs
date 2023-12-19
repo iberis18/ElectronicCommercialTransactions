@@ -19,6 +19,9 @@ namespace bll
         public DateTime? DateOfAuction { get; set; }
         public decimal? Delay { get; set; }
         public string[] Name { get; set; }
+        public string[] Stage { get; set; }
+        public string[] Type { get; set; }
+
         public List<Commodity> Commodity { get; set; }
 
         public Purchase(int id)
@@ -41,6 +44,7 @@ namespace bll
             DateOfAuction = item.DateOfAuction;
             Delay = item.Delay;
             Name = item.Name;
+            Stage = item.Stage;
 
             List<int> commodityIds = _context.CommodityPurchase
                 .Where(i => i.Purchase == item.Id)

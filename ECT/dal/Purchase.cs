@@ -22,6 +22,9 @@ namespace dal
         public DateTime? DateOfAuction { get; set; }
         public decimal? Delay { get; set; }
         public string[] Name { get; set; }
+        public string[] Stage { get; set; }
+        public string[] Type { get; set; }
+
 
         public virtual ICollection<CommodityPurchase> CommodityPurchase { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
