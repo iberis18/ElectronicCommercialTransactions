@@ -4,6 +4,40 @@
     "D:\\ElectronicCommercialTransactions\\ECT\\webapi\\webapi.csproj": {}
   },
   "projects": {
+    "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj",
+        "projectName": "bll",
+        "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj": {
+                "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj",
+        "projectName": "dal",
+        "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "D:\\ElectronicCommercialTransactions\\ECT\\webapi\\webapi.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +61,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj": {
+                "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,6 +81,20 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.32, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.1.18, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
