@@ -3646,6 +3646,18 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "bll/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "dal": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/bll.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/bll.dll": {}
+        }
+      },
       "dal/1.0.0": {
         "type": "project",
         "compile": {
@@ -10877,6 +10889,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "bll/1.0.0": {
+      "type": "project",
+      "path": "../bll/bll.csproj",
+      "msbuildProject": "../bll/bll.csproj"
+    },
     "dal/1.0.0": {
       "type": "project",
       "path": "../dal/dal.csproj",
@@ -10890,7 +10907,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.11",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.18",
       "Swashbuckle.AspNetCore >= 6.5.0",
-      "dal >= 1.0.0"
+      "bll >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -10920,8 +10937,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj": {
-              "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj"
+            "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj": {
+              "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj"
             }
           }
         }

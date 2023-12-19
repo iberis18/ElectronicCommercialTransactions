@@ -60,8 +60,6 @@ namespace dal
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Customer).HasColumnName("customer");
-
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
                     .HasColumnType("character varying(150)[]");
@@ -81,12 +79,6 @@ namespace dal
                 entity.Property(e => e.Unit)
                     .HasColumnName("unit")
                     .HasColumnType("character varying(30)[]");
-
-                entity.HasOne(d => d.CustomerNavigation)
-                    .WithMany(p => p.Commodity)
-                    .HasForeignKey(d => d.Customer)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("f_key_customer");
             });
 
             modelBuilder.Entity<CommodityPurchase>(entity =>
@@ -137,6 +129,10 @@ namespace dal
                 entity.Property(e => e.StartCost)
                     .HasColumnName("startCost")
                     .HasColumnType("numeric(1000,2)");
+
+                entity.Property(e => e.Name)
+                   .HasColumnName("name")
+                   .HasColumnType("character varying(300)[]");
             });
 
             modelBuilder.Entity<PurchaseHistory>(entity =>

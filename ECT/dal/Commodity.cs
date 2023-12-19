@@ -20,9 +20,7 @@ namespace dal
         public string[] Unit { get; set; }
         public decimal? Quantity { get; set; }
         public decimal? Price { get; set; }
-        public int Customer { get; set; }
 
-        public virtual Client CustomerNavigation { get; set; }
         public virtual ICollection<CommodityPurchase> CommodityPurchase { get; set; }
     }
 }

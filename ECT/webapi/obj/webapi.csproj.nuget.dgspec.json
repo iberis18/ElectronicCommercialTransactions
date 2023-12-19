@@ -4,6 +4,25 @@
     "D:\\ElectronicCommercialTransactions\\ECT\\webapi\\webapi.csproj": {}
   },
   "projects": {
+    "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj",
+        "projectName": "bll",
+        "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj": {
+                "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj": {
       "restore": {
         "projectUniqueName": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj",
@@ -43,8 +62,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj": {
-                "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\dal\\dal.csproj"
+              "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj": {
+                "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj"
               }
             }
           }

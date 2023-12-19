@@ -13,7 +13,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.11",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.18",
           "Swashbuckle.AspNetCore": "6.5.0",
-          "dal": "1.0.0"
+          "bll": "1.0.0"
         },
         "runtime": {
           "webapi.dll": {}
@@ -2318,6 +2318,14 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "bll/1.0.0": {
+        "dependencies": {
+          "dal": "1.0.0"
+        },
+        "runtime": {
+          "bll.dll": {}
+        }
+      },
       "dal/1.0.0": {
         "runtime": {
           "dal.dll": {}
@@ -3828,6 +3836,11 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "bll/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "dal/1.0.0": {
       "type": "project",

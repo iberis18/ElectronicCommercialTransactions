@@ -11,7 +11,6 @@ namespace dal
     {
         public Client()
         {
-            Commodity = new HashSet<Commodity>();
             PurchaseHistory = new HashSet<PurchaseHistory>();
         }
 
@@ -19,7 +18,6 @@ namespace dal
         public string[] Name { get; set; }
         public string[] Inn { get; set; }
 
-        public virtual ICollection<Commodity> Commodity { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
     }
 }

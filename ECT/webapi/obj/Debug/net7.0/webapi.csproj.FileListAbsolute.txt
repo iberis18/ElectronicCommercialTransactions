@@ -232,3 +232,6 @@ D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\dal.dll
 D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\dal.pdb
 D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\dal.dll.config
 D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\Microsoft.Bcl.HashCode.dll
+D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\bll.dll
+D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\bll.pdb
+D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\bll.dll.config

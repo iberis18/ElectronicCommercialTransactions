@@ -21,6 +21,7 @@ namespace dal
         public DateTimeOffset? PostingDate { get; set; }
         public DateTime? DateOfAuction { get; set; }
         public decimal? Delay { get; set; }
+        public string[] Name { get; set; }
 
         public virtual ICollection<CommodityPurchase> CommodityPurchase { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
