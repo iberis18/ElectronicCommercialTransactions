@@ -1,0 +1,34 @@
+@import '../../colors.sass'
+@import '../../const.sass'
+
+.search-field
+  display: flex
+  flex-direction: row
+  margin: $big-after-element-margin $big-page-indent $big-after-element-margin $big-page-indent
+  padding: $small-element-padding $element-padding $small-element-padding $element-padding
+  background: $white
+
+  &__label
+    flex-grow: 5
+    border: none
+    outline: none
+    color: $gray
+
+    &::placeholder
+      color: $light-gray
+      font-size: $placeholder-font-size
+
+  &__btn
+    border: none
+    background: transparent
+
+    &__icon
+      width: $icon-size
+      height: $icon-size
+      fill: $gray
+
+.visible
+  visibility: visible
+
+.hidden  
+  visibility: hidden
