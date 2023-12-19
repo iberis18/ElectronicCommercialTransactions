@@ -1,8 +1,15 @@
+import { BlokingWindow } from "../popupComponents/blokingWindow/BlokingWindow";
+import { usePopup } from "../popupComponents/usePopup";
+
 export default function Companies() {
+  const [isShowingBlokingWindow, toggleBlokingWindow] = usePopup();
+
     return (
-      <div>
-        <h1>Companies</h1>
-        <p>Welcome to list Companies!</p>
-      </div>
+      <div >
+      <BlokingWindow show={isShowingBlokingWindow} title={'TITLE'} message={'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'} />
+      <button onClick={toggleBlokingWindow}>
+        Open Modal
+      </button>
+    </div>
     )
   }

@@ -1,0 +1,159 @@
+@import '../../colors.sass'
+@import '../../const.sass'
+
+.auction-room
+  display: table
+  position: relative
+  width: 100%
+  background: $white    
+  padding: $big-element-padding $big-page-indent $big-page-indent $big-page-indent 
+  
+  &__row
+    display: table-row
+
+  &__col
+    display: table-cell
+    vertical-align: top
+    width: 33%
+
+  &__block-item
+    margin-bottom: $after-element-margin
+  
+  &__title
+    font:
+      size: $title-font-size
+      weight: $font-weight-semibold
+    display: inline-block
+    color: $coral
+    margin: 0
+  
+  &__number
+    color: $blue
+    font:
+      weight: $font-weight-semibold
+      size: $normal-font-size
+    margin: 0
+    padding-bottom: $big-element-padding
+
+  &__label
+    color: $gray
+    font:
+      weight: $font-weight-regular
+      size: $normal-font-size
+    margin: 0
+    padding-right: $element-padding
+
+    &__win
+      color: $coral
+      font-weight: $font-weight-semibold
+
+  &__value
+    color: $gray
+    font:
+      weight: $font-weight-bold
+      size: $normal-font-size
+    margin: 0
+
+  &__bold-label
+    color: $gray
+    font:
+      weight: $font-weight-bold
+      size: $normal-font-size
+    margin: 0
+  
+  &__name 
+    color: $gray
+    font:
+      weight: $font-weight-regular
+      size: $normal-font-size
+    margin-bottom: $after-element-margin
+
+
+  &__time-label
+    color: $gray
+    font:
+      weight: $font-weight-bold
+      size: $normal-font-size
+    margin: 0
+    padding-right: $element-padding
+    display: inline-block
+    vertical-align: middle
+    padding-bottom: $small-element-padding
+    line-height: $big-line-height
+
+  &__time-value
+    font:
+      size: $subtitle-font-size
+      weight: $font-weight-semibold
+    display: inline-block
+    color: $coral
+    margin: 0
+    vertical-align: middle
+    padding-bottom: $small-element-padding
+    line-height: $big-line-height
+
+  &__submit
+    background: $coral
+    color: $white
+    font: 
+      weight: $font-weight-semibold
+    border:
+      radius: $button-border-radius
+      style: solid 
+      color: $coral
+    line-height: $line-height
+    padding: 0 $element-padding
+    margin: 0 $small-margin
+    &:hover
+      background: $dark-coral
+      border-color: $dark-coral
+    &:disabled
+      border: $border-width solid $border-color
+      background-color: $disable-button-color
+      color: $gray
+  
+  &__progress-bar
+    margin: $after-element-margin 0
+    width: 80%
+  
+  &__offer-list
+    padding-left: $big-element-padding
+  
+  &__new-price
+    color: $blue
+    font:
+      weight: $font-weight-regular
+      size: $normal-font-size
+    margin: 0
+    padding-right: $smallest-element-padding
+    display: inline-block
+    font:
+      // style: italic
+      size: $placeholder-font-size
+    &__button
+      background: transparent
+      padding: 0
+      margin: 0
+      border: none
+      color: $blue
+      padding-right: $smallest-element-padding
+      font: 
+        // style: italic
+        size: $placeholder-font-size
+      &:hover
+        color: $dark-blue
+
+.input-field
+  border: $border-width solid $border-color
+  outline: none
+  color: $gray
+  font-size: $normal-font-size
+  line-height: $line-height
+  padding: 0 $smallest-element-padding 0 $smallest-element-padding
+  margin-bottom: $after-element-margin
+  width: 100%
+
+  &::placeholder
+    color: $light-gray
+    font-size: $placeholder-font-size
+  

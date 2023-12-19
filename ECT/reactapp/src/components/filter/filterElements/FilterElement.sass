@@ -1,0 +1,50 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+
+.filter
+  width: 100%
+
+  &__title
+    font: 
+      weight: $font-weight-semibold
+      size: $normal-font-size
+    color: $gray
+    margin: 0
+    line-height: $line-height
+
+  &__subtitle
+    font-size: $normal-font-size
+    color: $light-gray
+    margin-bottom: $small-margin
+    margin: 0
+  
+  &__input
+    margin-top: $small-margin
+    display: block
+    width: 100%
+  
+  &__line
+    border-bottom: $border-width solid $border-color
+    margin-bottom: $after-element-margin
+  
+  &__table
+    display: table
+    position: relative
+    width: 100%
+
+    &__row
+      display: table-row
+
+    &__col
+      display: table-cell
+    
+      &__label
+        font-size: $normal-font-size
+        color: $light-gray
+        margin-bottom: $small-margin
+        margin: 0
+  
+  &__checkbox-group
+    margin-top: $small-margin
+    width: 100%
+    margin-bottom: $after-element-margin
