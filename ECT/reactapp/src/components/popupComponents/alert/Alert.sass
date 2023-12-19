@@ -1,0 +1,95 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+
+.alert
+  position: fixed
+  right: 1%
+  top: $height-nav-menu
+  padding: 0
+  margin: 0
+  // transform: translate(-50%,-50%)
+
+  &-info
+    background: $alert-info
+     padding: $element-padding
+    &__title
+      color: $alert-info-text
+      font-size: $font-menu-size
+      font-weight: $font-weight-bold
+      margin: 0
+      text-align: center
+      padding-bottom: $element-padding
+      display: inline-block
+    &__message
+      color: $alert-info-text
+      text-align: center
+      font-size: $normal-font-size
+      font-weight: $font-weight-regular
+      margin: 0
+  
+  &-error
+    background: $alert-error
+    padding: $element-padding
+    &__title
+      color: $alert-error-text
+      font-size: $font-menu-size
+      font-weight: $font-weight-bold
+      margin: 0
+      text-align: center
+      display: inline-block
+    &__message
+      color: $alert-error-text
+      text-align: center
+      font-size: $normal-font-size
+      font-weight: $font-weight-regular
+      margin: 0
+  
+  &-success
+    background: $alert-success
+     padding: $element-padding
+    &__title
+      color: $alert-success-text
+      font-size: $font-menu-size
+      font-weight: $font-weight-bold
+      margin: 0
+      text-align: center
+      padding-bottom: $element-padding
+      display: inline-block
+    &__message
+      color: $alert-success-text
+      text-align: center
+      font-size: $normal-font-size
+      font-weight: $font-weight-regular
+      margin: 0
+  
+  &-warning
+    background: $alert-warning
+     padding: $element-padding
+    &__title
+      color: $alert-warning-text
+      font-size: $font-menu-size
+      font-weight: $font-weight-bold
+      margin: 0
+      text-align: center
+      padding-bottom: $element-padding
+      display: inline-block
+    &__message
+      color: $alert-warning-text
+      text-align: center
+      font-size: $normal-font-size
+      font-weight: $font-weight-regular
+      margin: 0
+
+  &__close-btn
+    position: fixed
+    right: $element-padding + $smallest-element-padding
+    top: $height-nav-menu + $smallest-element-padding
+    border: none
+    background: transparent
+    line-height: $icon-size
+    padding: 0
+    &__icon
+      width: $icon-size
+      height: $icon-size
+      fill: $gray
+

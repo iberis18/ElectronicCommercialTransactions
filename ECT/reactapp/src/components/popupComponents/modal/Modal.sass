@@ -1,0 +1,82 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+
+.modal-window 
+  position: fixed
+  top: 0px
+  left: 0px
+  z-index: 999999
+  width: 100%
+  height: 100%
+  background: $disable-color
+
+  &__component
+    position: fixed
+    left: 50%
+    top: 50%
+    transform: translate(-50%,-50%)
+    padding: $big-element-padding
+    background-color: $white
+
+    &__title
+      display: inline-block
+      color: $coral
+      font-size: $title-font-size
+      font-weight: $font-weight-semibold
+      margin: 0
+
+    &__close-btn
+      position: fixed
+      right: $element-padding
+      top: $element-padding
+      border: none
+      background: transparent
+      line-height: $icon-size
+      padding: 0
+      &__icon
+        width: $icon-size
+        height: $icon-size
+        fill: $gray
+    
+    &__content
+      max-height: 60vh
+      max-width: 80vw
+      overflow: auto
+
+    &__footler
+      width: 100%
+      margin-top: $after-element-margin
+      
+      &__close-btn
+        background: $white
+        width: 40%
+        min-width: 120px
+        float: left
+        margin-right: $after-element-margin
+        color: $gray
+        line-height: $line-height
+        font: 
+          weight: $font-weight-semibold
+        border:
+          radius: $button-border-radius
+          width: $button-border-width
+          style: solid 
+          color: $gray
+        padding: $button-padding $small-element-padding
+
+      &__confirm-btn
+        background: $white
+        width: 40%
+        min-width: 120px
+        float: right
+        color: $coral
+        line-height: $line-height
+        font: 
+          weight: $font-weight-semibold
+        border:
+          radius: $button-border-radius
+          width: $button-border-width
+          style: solid 
+          color: $coral
+        padding: $button-padding $small-element-padding
+

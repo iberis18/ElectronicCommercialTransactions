@@ -1,0 +1,58 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+
+.new-purchase-page
+  display: table
+  position: relative
+  width: 100%
+  background: $white    
+  padding: $big-element-padding $big-page-indent $big-page-indent $big-page-indent 
+  
+  &__title
+    font:
+      size: $title-font-size
+      weight: $font-weight-semibold
+    display: inline-block
+    color: $coral
+    margin: 0
+    padding-bottom: $element-padding
+    line-height: $big-line-height
+
+  &__subtitle
+    line-height: $big-line-height
+    font:
+      size: $subtitle-font-size
+      weight: $font-weight-semibold
+    color: $gray
+    margin: 0
+    padding-bottom: $smallest-element-padding
+    padding-top: $element-padding
+
+  &__radio
+    margin-bottom: $after-element-margin
+
+  &__date
+    width: $small-col
+
+  &__modal-btn 
+    border: none
+    background: transparent
+    &__icon
+      width: $icon-size
+      height: $icon-size
+      fill: $gray
+
+  &__submit-btn
+    float: right
+    background: $coral
+    color: $white
+    font: 
+      weight: $font-weight-semibold
+    border:
+      radius: $button-border-radius
+      style: solid 
+      color: $coral
+    padding: $button-padding $small-element-padding
+    &:hover
+      background: $dark-coral
+      border-color: $dark-coral

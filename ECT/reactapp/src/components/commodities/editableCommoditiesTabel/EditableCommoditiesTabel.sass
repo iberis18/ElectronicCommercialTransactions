@@ -1,0 +1,68 @@
+@import '../../../colors.sass'
+@import '../../../const.sass'
+  
+.editable-commodity-tabel 
+  width: 100%
+
+  thead
+    tr
+      border: $border-width solid $border-color
+      th
+        color: $light-gray
+        font:
+          size: $small-font-size
+          weight: $font-weight-regular
+        line-height: $big-line-height
+        text-align: center
+
+  tbody
+    tr.elements
+      border: $border-width solid $border-color
+      td
+        color: $gray
+        font-size: $normal-font-size
+        line-height: $giant-line-height
+        text-align: center
+
+    tr.total
+      border: none
+
+      td.sum
+        text-align: right
+        font:
+          size: $small-title-font-size
+          weight: $font-weight-semibold
+        color: $gray
+        line-height: $giant-line-height
+      
+      td.button
+        padding: $small-element-padding 0
+        .add-button
+          background: $white
+          color: $blue
+          font: 
+            weight: $font-weight-semibold
+          border:
+            radius: $button-border-radius
+            width: $button-border-width
+            style: solid 
+            color: $blue
+          padding: $button-padding $small-element-padding
+          &:hover
+            color: $dark-blue
+            border-color: $dark-blue
+
+  &__modal-btn
+    border: none
+    background: transparent
+    &__icon
+      width: $icon-size
+      height: $icon-size
+      fill: $gray
+      &:hover
+        fill: $black
+        
+  &__inline-item
+    display: inline-block   
+
+

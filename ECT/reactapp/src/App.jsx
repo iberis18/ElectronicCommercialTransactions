@@ -3,7 +3,7 @@ import { Home } from './components/home/Home';
 import { NavMenu } from './components/navMenu/NavMenu';
 import { AllPurchases } from './components/purchases/purchasesListPages/AllPurchases';
 import { MyPurchases } from './components/purchases/purchasesListPages/MyPurchases';
-import NewPurchases from './components/purchases/newPurchases/NewPurchases';
+import { NewPurchase } from './components/purchases/newPurchase/NewPurchase';
 import AllSte from './components/ste/allSte/AllSte';
 import MySte from './components/ste/mySte/mySte';
 import NewSte from './components/ste/newSte/NewSte';
@@ -12,6 +12,7 @@ import Win from './components/transactions/win/Win';
 import Participation from './components/transactions/participation/Participation';
 import './App.sass';
 import { Purchase } from './components/purchases/purchase/Purchase';
+import { AuctionRoom } from './components/auctionRoom/AuctionRoom';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/allPurchases" element={<AllPurchases />} />
             <Route path="/myPurchases" element={<MyPurchases />} />
-            <Route path="/newPurchases" element={<NewPurchases />} />
+            <Route path="/newPurchases" element={<NewPurchase />} />
             <Route path="/allSte" element={<AllSte />} />
             <Route path="/mySte" element={<MySte />} />
             <Route path="/newSte" element={<NewSte />} />
@@ -31,6 +32,7 @@ function App() {
             <Route path="/win" element={<Win />} />
             <Route path="/participation" element={<Participation />} />
             <Route path="/purchase/:id" element={<Purchase /> } />
+            <Route path="/auctionRoom/:id" element={<AuctionRoom />} />
           </Routes>
         </div>
       </main>

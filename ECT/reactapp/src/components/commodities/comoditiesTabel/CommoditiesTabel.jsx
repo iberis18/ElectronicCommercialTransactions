@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './CommoditiesTabel.sass'
+import { spaceDigits } from '../../../helper';
 
 export const CommoditiesTabel = (props) => {
   const commodityList = props.commodityList || [];
+  const startCost = props.startCost || 0;
 
   return (
     <>
@@ -24,14 +26,14 @@ export const CommoditiesTabel = (props) => {
               <td>{item.okpd2}</td>
               <td>{item.name}</td>
               <td>{item.unit}</td>
-              <td>{item.quantity}</td>
-              <td>{item.price}</td>
-              <td>{item.cost}</td>
+              <td>{spaceDigits(item.quantity)}</td>
+              <td>{spaceDigits(item.price)}</td>
+              <td>{spaceDigits(item.cost)}</td>
             </tr>
           )
         }
         <tr className='total-sum'>
-          <td colSpan='6'>Итого: 14 991,15 ₽</td>
+          <td colSpan='6'>Итого: {spaceDigits(startCost)} ₽</td>
         </tr>
         </tbody>
       </table>
