@@ -41,7 +41,7 @@ export const NavMenu = () => {
           </li>
           <li className='navbar__element'>
             <a href='#'>
-              ИП Пупкин В.С.
+              ООО «Рога и Копыта»
               <Ava className='navbar__logo__image'/>
             </a>
             <ul className="dropdown">

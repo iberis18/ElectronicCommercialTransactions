@@ -71,7 +71,7 @@ export const getMyFilterPurchases = async (page, filter) => {
 };
 
 export const addNewPurchases = async (body) => {
-  const response = await post(`${NEW_PURCHASES_URL}`, {
+  return await post(`${NEW_PURCHASES_URL}`, {
     name: body.name,
     customer: body.customer,
     startCost: body.startCost,
@@ -91,5 +91,4 @@ export const addNewPurchases = async (body) => {
     stage: body.stage,
     type: body.type,
   });
-  return (response);
 };

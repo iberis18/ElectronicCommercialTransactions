@@ -10,6 +10,7 @@ import { Documents } from '../../documents/Documents';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from '../../popupComponents/alert/Alert';
 import { usePopup } from '../../popupComponents/usePopup';
+import { addNewCommodity } from '../../../api/domains/commodityApi';
 
 export const NewPurchase = () => {
   const [isShowingAlert, toggleAlert] = usePopup();
@@ -37,6 +38,17 @@ export const NewPurchase = () => {
     changeCommodityList(commodityList);
   };
 
+  const submitCommodity = async(purchaseId, elem) => {
+    const response = await addNewCommodity(purchaseId, {
+      okpd2: elem.okpd2,
+      name: elem.name,
+      unit: elem.unit,
+      quantity: elem.quantity,
+      price: elem.price,
+      cost: elem.cost,
+    });
+  }
+
   const submit = async() => {
     const response = await addNewPurchases({
       name: name,
@@ -58,12 +70,18 @@ export const NewPurchase = () => {
       stage: STAGES_ID.WAITS,
       type: (radioPurchaseTypes.filter(elem => elem.checked === true))[0].value,
     });
-    // console.log(response);
+    
+    commodityList.map((elem) => {
+      submitCommodity(response, elem);
+    }); 
+
     alert('Успешно добавлено!');
     // if(!isShowingAlert)
     //   toggleAlert();
-    navigate(`/purchase/${response.id}`);
+    // console.log(await response);
+    navigate(`/purchase/${response}`);
   }
+
 
   // useEffect(() => {
   //   console.log(auctionDate);

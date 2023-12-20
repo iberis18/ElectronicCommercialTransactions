@@ -45,5 +45,22 @@ namespace bll
             Price = item.Price;
 
         }
+        public int add(int purchaseId)
+        {
+            var item = new dal.Commodity();
+            item.Id = Id;
+            item.Name = new[] { Name };
+            item.Okpd2 = new[] { Okpd2 };
+            item.Unit = new[] { Unit };
+            item.Quantity = Quantity;
+            item.Price = Price;
+
+            _context.Commodity.Add(item);
+            _context.SaveChanges();
+            _context.CommodityPurchase.Add(new CommodityPurchase(){ Purchase = purchaseId, Commodity = item.Id });
+            _context.SaveChanges();
+
+            return item.Id;
+        }
     }
 }

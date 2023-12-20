@@ -12,7 +12,6 @@ namespace bll
     public class Purchase
     {
         private ECTContext _context = new ECTContext();
-        private dal.Purchase _purchase;
         public int Id { get; set; }
         public string Number { get; set; }
         public decimal? StartCost { get; set; }
@@ -29,20 +28,19 @@ namespace bll
 
         public Purchase(int id)
         {
-            _purchase = _context.Purchase.FirstOrDefault(i => i.Id == id);
-            setParam(_purchase);
+            var item = _context.Purchase.FirstOrDefault(i => i.Id == id);
+            setParam(item);
         }
 
         public Purchase(dal.Purchase item)
         {
-            _purchase = item;
             setParam(item);
         }
 
         public Purchase()
         {
-            _purchase = new dal.Purchase();
-            setParam(_purchase);
+            var item = new dal.Purchase();
+            setParam(item);
         }
 
         private void setParam(dal.Purchase item)
@@ -76,21 +74,24 @@ namespace bll
                     .Name);
         }
 
-        public void add()
+        public int add()
         {
-            _purchase.Id = Id;
-            _purchase.Number = new[] { Number };
-            _purchase.StartCost = StartCost;
-            _purchase.DateOfAuction = DateOfAuction;
-            _purchase.PostingDate = PostingDate;
-            _purchase.StartCost = StartCost;
-            _purchase.Delay = Delay;
-            _purchase.Name = new[] { Name };
-            _purchase.Stage = new[] { Stage };
-            _purchase.Type = new[] { Type };
+            var item = new dal.Purchase();
+            item.Id = Id;
+            item.Number = new[] { Number };
+            item.StartCost = StartCost;
+            item.DateOfAuction = DateOfAuction;
+            item.PostingDate = PostingDate;
+            item.StartCost = StartCost;
+            item.Delay = Delay;
+            item.Name = new[] { Name };
+            item.Stage = new[] { Stage };
+            item.Type = new[] { Type };
 
-            _context.Purchase.Add(_purchase);
+            _context.Purchase.Add(item);
             _context.SaveChanges();
+
+            return item.Id;
         }
     }
 }
