@@ -124,7 +124,7 @@ namespace dal
 
                 entity.Property(e => e.PostingDate)
                     .HasColumnName("postingDate")
-                    .HasColumnType("time with time zone");
+                    .HasColumnType("timestamp with time zone");
 
                 entity.Property(e => e.StartCost)
                     .HasColumnName("startCost")
@@ -139,6 +139,15 @@ namespace dal
                 
                 entity.Property(e => e.Type)
                     .HasColumnName("type");
+
+                entity.Property(e => e.Customer)
+                    .HasColumnName("customer");
+
+                entity.HasOne(d => d.CustomerNavigation)
+                    .WithMany(p => p.Purchases)
+                    .HasForeignKey(d => d.Customer)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("f_key_customer");
             });
 
             modelBuilder.Entity<PurchaseHistory>(entity =>

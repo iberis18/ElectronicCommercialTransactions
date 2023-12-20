@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using bll;
+using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,8 +32,30 @@ namespace webapi.Controllers
 
         // POST api/<PurchasesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Purchase value)
         {
+            value.add();
+            //var body = System.Text.Json.JsonSerializer.Deserialize<Purchase>(value);
+            
+    //        purchase.Name = value.name;
+    //            name: body.name,
+    //customer: body.customer,
+    //startCost: body.startCost,
+    //postingDate: new Date(),
+    //dateOfAuction: body.dateOfAuction,
+    //commodity: body.commodity.map((elem) => {
+    //    return {
+    //        okpd2: elem.okpd2,
+    //    name: elem.name,
+    //    unit: elem.unit,
+    //    quantity: elem.quantity,
+    //    price: elem.price,
+    //    cost: elem.cost,
+    //  }
+    //}),
+    //// documents: body.documents,
+    //stage: body.stage,
+    //type: body.type,
         }
 
         // PUT api/<PurchasesController>/5

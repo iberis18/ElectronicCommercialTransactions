@@ -25,6 +25,7 @@ export const NewPurchase = () => {
   const [startCost, setStartCost] = useState(0);
   const [commodityList, changeCommodityList] =  useState([]);
   const navigate = useNavigate();
+  const myId = 1;
 
   useEffect(() => async() => {
     const data = await getPurchase(1);
@@ -39,7 +40,7 @@ export const NewPurchase = () => {
   const submit = async() => {
     const response = await addNewPurchases({
       name: name,
-      customer: 'Рога и копыта',
+      customer: myId,
       startCost: startCost,
       postingDate: new Date(),
       dateOfAuction: auctionDate,

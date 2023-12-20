@@ -18,14 +18,15 @@ namespace dal
         public int Id { get; set; }
         public string[] Number { get; set; }
         public decimal? StartCost { get; set; }
-        public DateTimeOffset? PostingDate { get; set; }
+        public DateTime? PostingDate { get; set; }
         public DateTime? DateOfAuction { get; set; }
         public decimal? Delay { get; set; }
         public string[] Name { get; set; }
         public string[] Stage { get; set; }
         public string[] Type { get; set; }
+        public int? Customer { get; set; }
 
-
+        public virtual Client CustomerNavigation { get; set; }
         public virtual ICollection<CommodityPurchase> CommodityPurchase { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
     }

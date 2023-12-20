@@ -12,12 +12,14 @@ namespace dal
         public Client()
         {
             PurchaseHistory = new HashSet<PurchaseHistory>();
+            Purchases = new HashSet<Purchase>();
         }
 
         public int Id { get; set; }
         public string[] Name { get; set; }
         public string[] Inn { get; set; }
 
+        public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<PurchaseHistory> PurchaseHistory { get; set; }
     }
 }

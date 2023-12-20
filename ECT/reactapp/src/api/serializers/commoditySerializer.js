@@ -6,9 +6,9 @@ export const commoditySerializer = (response) => {
     name: response.name || "",
     unit: response.unit || "",
     quantity: response.quantity || 0.00,
-    price: response.prise || 0.00,
-    cost: (response.quantity && response.prise) 
-      ? (response.quantity * response.prise).toFixed(2) 
+    price: response.price || 0.00,
+    cost: (response.quantity && response.price) 
+      ? (response.quantity * response.price).toFixed(2) 
       : 0.00,
   };
 };
