@@ -3699,27 +3699,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
-      },
-      "bll/1.0.0": {
-        "type": "project",
-        "dependencies": {
-          "dal": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/bll.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/bll.dll": {}
-        }
-      },
-      "dal/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/dal.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/dal.dll": {}
-        }
       }
     }
   },
@@ -10997,16 +10976,6 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
-    },
-    "bll/1.0.0": {
-      "type": "project",
-      "path": "../bll/bll.csproj",
-      "msbuildProject": "../bll/bll.csproj"
-    },
-    "dal/1.0.0": {
-      "type": "project",
-      "path": "../dal/dal.csproj",
-      "msbuildProject": "../dal/dal.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -11016,8 +10985,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.32",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.11",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.18",
-      "Swashbuckle.AspNetCore >= 6.5.0",
-      "bll >= 1.0.0"
+      "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
   "packageFolders": {
@@ -11046,11 +11014,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj": {
-              "projectPath": "D:\\ElectronicCommercialTransactions\\ECT\\bll\\bll.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
