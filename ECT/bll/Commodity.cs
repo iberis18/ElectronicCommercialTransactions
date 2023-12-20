@@ -11,30 +11,56 @@ namespace bll
     {
         private ECTContext _context = new ECTContext();
         public int Id { get; set; }
-        public string[] Name { get; set; }
-        public string[] Okpd2 { get; set; }
-        public string[] Unit { get; set; }
+        public string Name { get; set; }
+        public string Okpd2 { get; set; }
+        public string Unit { get; set; }
         public decimal? Quantity { get; set; }
         public decimal? Price { get; set; }
         public Commodity(int id) 
         {
             var item = _context.Commodity.FirstOrDefault(c => c.Id == id);
-            Id = id;
-            Okpd2 = item.Okpd2;
-            Name = item.Name;
-            Unit = item.Unit;
-            Quantity = item.Quantity;
-            Price = item.Price;
+            setParam(item);
         }
 
         public Commodity(dal.Commodity item)
         {
+            setParam(item);
+        }
+
+        public Commodity()
+        {
+            setParam(new dal.Commodity());
+        }
+
+        private void setParam(dal.Commodity item)
+        {
             Id = item.Id;
-            Okpd2 = item.Okpd2;
-            Name = item.Name;
-            Unit = item.Unit;
+            if (item.Okpd2 != null)
+                Okpd2 = String.Join(" ", item.Okpd2);
+            if (item.Name != null)
+                Name = String.Join(" ", item.Name);
+            if (item.Unit != null)
+                Unit = String.Join(" ", item.Unit);
             Quantity = item.Quantity;
             Price = item.Price;
+
+        }
+        public int add(int purchaseId)
+        {
+            var item = new dal.Commodity();
+            item.Id = Id;
+            item.Name = new[] { Name };
+            item.Okpd2 = new[] { Okpd2 };
+            item.Unit = new[] { Unit };
+            item.Quantity = Quantity;
+            item.Price = Price;
+
+            _context.Commodity.Add(item);
+            _context.SaveChanges();
+            _context.CommodityPurchase.Add(new CommodityPurchase(){ Purchase = purchaseId, Commodity = item.Id });
+            _context.SaveChanges();
+
+            return item.Id;
         }
     }
 }

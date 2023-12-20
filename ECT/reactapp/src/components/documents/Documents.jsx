@@ -14,7 +14,7 @@ export const Documents = () => {
           <AddIcon className='documents__header__add-btn__icon' />
         </button>
       </div>
-      <div className='documents__item'>
+      {/* <div className='documents__item'>
         <a className='documents__item__name' href=''>Описание объекта закупки.docx</a>
         <button onClick={() => deliteItem(index)} className='documents__item__cross-btn'>
           <CrossIcon className='documents__item__cross-btn__icon' />
@@ -31,7 +31,7 @@ export const Documents = () => {
         <button onClick={() => deliteItem(index)} className='documents__item__cross-btn'>
           <CrossIcon className='documents__item__cross-btn__icon' />
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }

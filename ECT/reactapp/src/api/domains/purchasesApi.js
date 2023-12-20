@@ -1,4 +1,4 @@
-import { PURCHASES_URL, STAGES_ID, MY_PURCHASES_URL } from '../../const.js';
+import { PURCHASES_URL, STAGES_ID, MY_PURCHASES_URL, NEW_PURCHASES_URL } from '../../const.js';
 import { purchaseSerializerList } from '../serializers/purchaseSerializerList.js';
 import { purchaseSerializer } from '../serializers/purchaseSerializer.js';
 import { get, put, post, postFile, del } from '../general/base.js';
@@ -12,16 +12,16 @@ import { get, put, post, postFile, del } from '../general/base.js';
 //   return purchaseSerializerList(mock);
 // };
 
-const stage = (id) => {
-  let res;
-  switch (id) {
-    case 0: res = STAGES_ID.ONGOING; break;
-    case 1: res = STAGES_ID.WAITS; break;
-    case 2: res = STAGES_ID.CANCELED; break;
-    case 3: res = STAGES_ID.COMPLETED; break;
-  }
-  return res;
-};
+// const stage = (id) => {
+//   let res;
+//   switch (id) {
+//     case 0: res = STAGES_ID.ONGOING; break;
+//     case 1: res = STAGES_ID.WAITS; break;
+//     case 2: res = STAGES_ID.CANCELED; break;
+//     case 3: res = STAGES_ID.COMPLETED; break;
+//   }
+//   return res;
+// };
 
 
 //url: baseApi/purchasesUrl/{id}
@@ -71,7 +71,7 @@ export const getMyFilterPurchases = async (page, filter) => {
 };
 
 export const addNewPurchases = async (body) => {
-  const response = await post(`${NEW_PURCHASES_URL}`, {
+  return await post(`${NEW_PURCHASES_URL}`, {
     name: body.name,
     customer: body.customer,
     startCost: body.startCost,
@@ -87,9 +87,8 @@ export const addNewPurchases = async (body) => {
         cost: elem.cost,
       }
     }),
-    documents: body.documents,
+    // documents: body.documents,
     stage: body.stage,
     type: body.type,
   });
-  return ({id: 1});
 };

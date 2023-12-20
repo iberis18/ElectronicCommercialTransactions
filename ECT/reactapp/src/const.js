@@ -1,7 +1,8 @@
 export const BASE_URL = 'https://localhost:7208/api/'
 export const PURCHASES_URL = 'Purchases/';
 export const MY_PURCHASES_URL = 'Purchases/';
-export const NEW_PURCHASES_URL = 'WeatherForecast/';
+export const NEW_PURCHASES_URL = 'Purchases/';
+export const NEW_COMMODITY_URL = 'Commodity/';
 
 export const FILTERS_ID = {
   DATE: 'DATE',

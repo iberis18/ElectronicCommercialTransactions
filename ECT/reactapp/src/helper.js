@@ -1,4 +1,6 @@
-export const formattingDateToString = (date) => {
+export const formattingDateToString = (value) => {
+  value = value ? value : new Date();
+  const date = new Date(value);
   const formatter = new Intl.DateTimeFormat('ru', {
     year: 'numeric',
     month: 'numeric',

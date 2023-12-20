@@ -11,39 +11,36 @@ namespace webapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PurchasesController : ControllerBase
+    public class CommodityController : ControllerBase
     {
-        private PurchaseList list = new PurchaseList();
-
-        // GET: api/<PurchasesController>
+        // GET: api/<CommodityController>
         [HttpGet]
-        public List<Purchase> Get()
+        public List<Commodity> Get()
         {
-
-            return list.Purchases;
+            return new List<Commodity>();
         }
 
-        // GET api/<PurchasesController>/5
+        // GET api/<CommodityController>/5
         [HttpGet("{id}")]
-        public Purchase Get(int id)
+        public Commodity Get(int id)
         {
-            return new Purchase(id);
+            return new Commodity();
         }
 
-        // POST api/<PurchasesController>
-        [HttpPost]
-        public int Post([FromBody] Purchase value)
+        // POST api/<CommodityController>/5
+        [HttpPost("{purchaseId}")]
+        public int Post(int purchaseId, [FromBody] Commodity value)
         {
-            return value.add();
+            return value.add(purchaseId);
         }
 
-        // PUT api/<PurchasesController>/5
+        // PUT api/<CommodityController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<PurchasesController>/5
+        // DELETE api/<CommodityController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

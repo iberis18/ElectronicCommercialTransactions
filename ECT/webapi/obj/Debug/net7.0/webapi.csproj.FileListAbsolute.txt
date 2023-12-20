@@ -235,3 +235,6 @@ D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\Microsoft.Bcl.Ha
 D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\bll.dll
 D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\bll.pdb
 D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\bll.dll.config
+D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\ElectronicCommercialTransactions\ECT\webapi\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
